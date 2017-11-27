@@ -18,23 +18,6 @@ Description:
 //#define DEBUG
 
 
-/*	***  Declare Prototypes  ***	*/
-
-
-
-/*	***  Main Code  ***	*/
-int main(void)
-{
-	// declare variables
-	
-	
-	// initialize variables
-	
-	
-}
-
-
-
 /*	***  Functions Workspace  ***	*/
 
 /* Function Name:  
