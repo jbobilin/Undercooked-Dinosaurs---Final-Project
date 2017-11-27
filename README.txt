@@ -2,8 +2,8 @@ Welcome the the README file for the Undercooked Dinosaurs's final project.
 
 Along with this file, you should find:
   1 - makefile
-  2 - mainmodule.c
-  3 - mainmodule.h
+  2 - main_module.c
+  3 - main_module.h
   4 - starting_configuration_module.c
   5 - starting_configuration_module.h
   6 - gameplay_module.c
