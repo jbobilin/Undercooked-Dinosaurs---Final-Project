@@ -18,6 +18,7 @@ Along with this file, you should find:
   15 - endgame_module.h
   16 - display.h
   17 - display.o
+  18 - finprojutil.h
 
 Some quick notes for future developers:
 This program stores all the information for the game in three two-dimensional arrays called the timmy_level, mine_level, and display_level. We have taken this approach because we found the need to store data about the game at different layers/levels; for example we need the program to know where all of the mines are within the game, but on a surface level display empty tiles.
