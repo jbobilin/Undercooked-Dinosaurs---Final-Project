@@ -1,6 +1,6 @@
 /*
 **************************
-File Name:      mainmodule.h
+File Name:      main_module.h
 Created By:     
 Login:          
 Team:           Undercooked Dinosaurs
