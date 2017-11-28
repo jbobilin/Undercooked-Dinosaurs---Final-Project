@@ -17,6 +17,7 @@ Description:	  utility functions, macros, etc. for the Undercooked Dinosaurs's f
 //#define DEBUG
 #define TRUE 1
 #define FALSE 0
+#define RESTART 3
 
 /*	***  Declare Prototypes  ***	*/
 //note: rn there are no utility functions, if you add one, please write a finalproject.c file to put it in and modify the README.txt file associated with the project to reflect your changes.
