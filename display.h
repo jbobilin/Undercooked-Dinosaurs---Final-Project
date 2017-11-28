@@ -12,7 +12,7 @@
 /* The following data type, Glif, is used by the show_glif() function
    to specify the glif image to appear on the board.
 */
-enum Glif {TIMMY, SAFE, EMPTY, FLAG, MINE, FL_MINE, EXPLODE, OUT};
+enum Glif {TIMMY, SAFE, EMPTY, FLAG, MINE, FL_MINE, EXPLODE};
 typedef enum Glif Glif;
 
 void draw_board(void);
