@@ -33,19 +33,33 @@ void print_menu_choices(void);
 void print_move(void);
 void print_flags(void);
 void print_points(void);
+void print_level_choices(void);
+int choose_level(void);
+
 
 /*	***  Main Code  ***	*/
 int main(void)
 {	
-	// declare variables
-	// initialize variables
+	// declare initialize variables
+	int level;
+
 	while(quit_flag == FALSE || quit_flag == RESTART)
 	{
 		print_title1();
 		main_menu();
+			if (quit_flag == TRUE)
+				break;
 		
+		level = choose_level();
+			if (quit_flag == TRUE)
+				break;
+
+		starting_configuration_module(level);
 		
+		gameplay_module();
 	}	
+	
+	void clear_screen(void);
 }
 
 
@@ -102,15 +116,18 @@ void print_title1(void)
 
 void print_menu_choices(void)
 {
-	printf("\n\n\n		1)	to find how to move about
+	printf("\n\n\n
+		1)	to find how to move about
 		2)	to find how to plant flags
 		3)	to see how to earn points
-		4)	to start play\n\n:");
+		4)	to start play
+		q)	quit\n\n:");
 }
 
 void print_move(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n				Moving About
+	printf("\n\n\n\n\n\n\n\n\n\n
+			       Moving About
 
 	You can move about the field in any of eight directions from 
 	your current position by using the keys centered around the 'j'
@@ -128,7 +145,8 @@ void print_move(void)
 
 void print_flags(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n				Planting Flags
+	printf("\n\n\n\n\n\n\n\n\n\n
+	       			Planting Flags
 
 	You can plant one of your flags in any of eight directions from
 	your current position by using the shifted keys centered around
@@ -146,7 +164,8 @@ void print_flags(void)
 
 void print_points(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n				 Earning Points
+	printf("\n\n\n\n\n\n\n\n\n\n
+	       			Earning Points
 
 	You earn 1 point for each new "SAFE" grid you identify by stepping
 	through it.  You also get a bonus of 10 points for making it
@@ -157,4 +176,40 @@ void print_points(void)
 	The game ends when you either blow up :-( or safely make it out of
 	the miensfeld on the far right :-) or when you successfully flag
 	all mines.");
+}
+
+int choose_level(void)
+{
+	print_level_choices();
+
+	while (TRUE)
+	{
+		char menu_sel;
+		menu_sel = getchar();
+		switch (menu_sel)	
+			case ('1'):
+				return 1;
+			case ('2'):
+				return 2;
+			case ('3'):
+				return 3;
+			case ('4'):
+				return 4;
+			case ('q'):				
+			case ('Q'):
+				quit_flag = TRUE;
+				return 0;
+			default:
+				printf("Error: invalid selection, please try again\n");
+				break;
+	}
+}
+void print_level_choices(void)
+{
+	printf("\n\n\n
+	1)	Easy
+	2)	Moderate
+	3)	Hard
+	4)	Impossible
+	q)	quit\n\n:");
 }
