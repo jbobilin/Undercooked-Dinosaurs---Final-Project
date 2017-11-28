@@ -1,9 +1,13 @@
 # Undercooked Dinosaurs's makefile for the final project
 # Created: 26 November 2017
+
+# directory path for links
 FPROJ = /inst/ee/ee160/ee160/Code.lect/Miensfeld
 
+# target for making executables
 all: miensfeld
 
+# target for miensfeld
 miensfeld: miensfeld.o mainmodule.o starting_configuration_module.o gameplay_module.o move_module.o plant_module.o check_adj_module.o endgame_module.o
 	cc mainmodule.o starting_configuration_module.o gameplay_module.o move_module.o plant_module.o check_adj_module.o endgame_module.o -o miensfeld.o
 
@@ -17,9 +21,10 @@ check_adj_module.o
 endgame_module.o
 display.o: display.h
 
+# copies targets
 copies:
-	cp  -i $(FPROJ)/display.h
-	cp  -i $(FPROJ)/display.o
+	cp  -i $(FPROJ)/display.h .
+	cp  -i $(FPROJ)/display.o .
 
 #utility targets
 clean:
