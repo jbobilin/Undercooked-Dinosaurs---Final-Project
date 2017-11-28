@@ -22,7 +22,7 @@ Description:
 
 /*	***  Declare Global Variables  ***	*/
 int quit_flag = FALSE;
-enum TIM_LOC timmy_level[10][12];
+enum TIM_LOC timmy_level[8][10];
 enum Glif display_level[8][10];
 enum Glif mine_level[8][10];
 
