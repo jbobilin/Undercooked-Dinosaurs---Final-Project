@@ -6,7 +6,7 @@ Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
 Last Modified:  26 November 2017
-Description:	  
+Description:	This is the main module for the Miensfeld game. It contains all the menus used to set up the game as well as the main function which runs the game.
 **************************
 */
 
