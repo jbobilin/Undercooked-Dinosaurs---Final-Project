@@ -12,6 +12,8 @@ Description:
 
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "display.h"
 #include "starting_configuration_module.h"
 #include "gameplay_module.h"
@@ -45,7 +47,6 @@ int main(void)
 
 	while(quit_flag == FALSE || quit_flag == RESTART)
 	{
-		print_title1();
 		main_menu();
 			if (quit_flag == TRUE)
 				break;
@@ -71,36 +72,43 @@ void main_menu()
 	while (invalid_sel_flag == TRUE)
 	{
 		char menu_sel;
+		print_title1();
 		print_menu_choices();
 		menu_sel = getchar();
 		switch (menu_sel)	
 		{
-			case ('1'):
+			case '1':
 				print_move();
+				getchar();
 				break;
-			case ('2'):
+			case '2':
 				print_flags();
+				getchar();
 				break;
-			case ('3'):
+			case '3':
 				print_points();
+				getchar();
 				break;
-			case ('4'):
+			case '4':
 				invalid_sel_flag = FALSE;
 				break;
-			case ('q'):				
-			case ('Q'):
+			case 'q':				
+			case 'Q':
 				quit_flag = TRUE;
+				invalid_sel_flag = FALSE;
 				break;
 			default:
 				printf("Error: invalid selection, please try again\n");
+				sleep(2);
 				break;
 		}
+		FLUSH
 	}
 }
 
 void print_title1(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	system("clear");
 	printf("				 WELCOME\n");
 	printf("				   to\n");
 	printf("				Miensfeld\n\n");
@@ -118,17 +126,17 @@ void print_title1(void)
 
 void print_menu_choices(void)
 {
-	printf("\n\n\n");
+	printf("\n\n");
 	printf("\t1)\tto find how to move about\n");
 	printf("\t2)\tto find how to plant flags\n");
 	printf("\t3)\tto see how to earn points\n");
 	printf("\t4)\tto start play\n");
-	printf("\tq)\tquit\n\n:");
+	printf("\tq)\tquit\n\n");
 }
 
 void print_move(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	system("clear");
 	printf("			       Moving About\n\n");
 	printf("	You can move about the field in any of eight directions from\n");
 	printf("	your current position by using the keys centered around the 'j'\n");
@@ -144,7 +152,7 @@ void print_move(void)
 
 void print_flags(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	system("clear");
 	printf("	       			Planting Flags\n\n");
 	printf("	You can plant one of your flags in any of eight directions from\n");
 	printf("	your current position by using the shifted keys centered around\n");
@@ -160,7 +168,7 @@ void print_flags(void)
 
 void print_points(void)
 {
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	system("clear");
 	printf("	       			Earning Points\n\n");
 	printf("	You earn 1 point for each new \"SAFE\" grid you identify by stepping\n");
 	printf("	through it.  You also get a bonus of 10 points for making it\n");
@@ -175,37 +183,14 @@ void print_points(void)
 int choose_level(void)
 {
 	print_level_choices();
-
-	while (TRUE)
-	{
-		char menu_sel;
-		menu_sel = getchar();
-		switch (menu_sel)	
-		{
-			case ('1'):
-				return 1;
-			case ('2'):
-				return 2;
-			case ('3'):
-				return 3;
-			case ('4'):
-				return 4;
-			case ('q'):				
-			case ('Q'):
-				quit_flag = TRUE;
-				return 0;
-			default:
-				printf("Error: invalid selection, please try again\n");
-				break;
-		}
-	}
+	return 0;
 }
 void print_level_choices(void)
 {
-	printf("\n\n\n");
+	printf("\n\n");
 	printf("\t1)\tEasy\n");
 	printf("\t2)\tModerate\n");
 	printf("\t3)\tHard\n");
 	printf("\t4)\tImpossible\n");
-	printf("\tq)\tquit\n\n:");
+	printf("\tq)\tquit\n\n");
 }
