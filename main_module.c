@@ -68,6 +68,7 @@ int main(void)
 void main_menu()
 {
 	int invalid_sel_flag = TRUE;
+
 	while (invalid_sel_flag == TRUE)
 	{
 		char menu_sel;
@@ -97,11 +98,9 @@ void main_menu()
 				invalid_sel_flag = FALSE;
 				break;
 			default:
-		//		printf("Error: invalid selection, please try again.\n");
 				break;
 		}
 		while(getchar() != '\n');
-
 	}
 }
 
@@ -130,7 +129,7 @@ void print_menu_choices(void)
 	printf("\t2)\tto find how to plant flags\n");
 	printf("\t3)\tto see how to earn points\n");
 	printf("\t4)\tto start play\n");
-	printf("\tq)\tquit\n\n");
+	printf("\tq)\tto quit\n\n");
 }
 
 void print_move(void)
@@ -184,15 +183,39 @@ void print_points(void)
 
 int choose_level(void)
 {
-	print_level_choices();
-	return 0;
+	while (TRUE)
+	{
+		char menu_sel;
+		print_level_choices();
+		menu_sel = getchar();
+		switch (menu_sel)	
+		{
+			case '1':
+				return 1;
+			case '2':
+				return 2;
+			case '3':
+				return 3;
+			case '4':
+				return 4;
+			case 'q':				
+			case 'Q':
+				quit_flag = TRUE;
+				return 0;
+			default:
+				break;
+		}
+		while(getchar() != '\n');
+	}
 }
 void print_level_choices(void)
 {
+	system("clear");
+	printf("Please choose a level:\n");
 	printf("\n\n");
 	printf("\t1)\tEasy\n");
 	printf("\t2)\tModerate\n");
 	printf("\t3)\tHard\n");
 	printf("\t4)\tImpossible\n");
-	printf("\tq)\tquit\n\n");
+	printf("\tq)\tto quit\n\n");
 }
