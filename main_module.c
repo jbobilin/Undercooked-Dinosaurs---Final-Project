@@ -68,7 +68,6 @@ int main(void)
 void main_menu()
 {
 	int invalid_sel_flag = TRUE;
-	print_menu_choices();
 	while (invalid_sel_flag == TRUE)
 	{
 		char menu_sel;
@@ -98,11 +97,11 @@ void main_menu()
 				invalid_sel_flag = FALSE;
 				break;
 			default:
-				printf("Error: invalid selection, please try again\n");
-				sleep(2);
+		//		printf("Error: invalid selection, please try again.\n");
 				break;
 		}
-		FLUSH
+		while(getchar() != '\n');
+
 	}
 }
 
@@ -148,6 +147,7 @@ void print_move(void)
 	printf("				n | m | ,\n\n");
 	printf("	However, you will not be allowed to leave the field except from\n");
 	printf("	the far right edge.\n");
+	printf("\n\n\tHit ENTER to return to the main menu.\n");
 }
 
 void print_flags(void)
@@ -164,6 +164,7 @@ void print_flags(void)
 	printf("				N | M | <\n\n");
 	printf("	You will receive 2 points if you plant a flag on a mine, but you\n");
 	printf("	will lose 1 point (and the flag) if you plant it in an empty grid.\n");
+	printf("\n\n\tHit ENTER to return to the main menu.\n");
 }
 
 void print_points(void)
@@ -178,6 +179,7 @@ void print_points(void)
 	printf("	The game ends when you either blow up :-( or safely make it out of\n");
 	printf("	the miensfeld on the far right :-) or when you successfully flag\n");
 	printf("	all mines.\n");
+	printf("\n\n\tHit ENTER to return to the main menu.\n");
 }
 
 int choose_level(void)
