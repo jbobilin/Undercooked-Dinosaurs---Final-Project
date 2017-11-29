@@ -132,7 +132,7 @@ void print_move(void)
 	printf("			       Moving About\n\n");
 	printf("	You can move about the field in any of eight directions from\n");
 	printf("	your current position by using the keys centered around the 'j'\n");
-	printf("	key:\n\n);
+	printf("	key:\n\n");
 	printf("				y | u | i\n");
 	printf("				--|---|--\n");
 	printf("				h |   | k\n");
@@ -166,7 +166,7 @@ void print_points(void)
 	printf("	through it.  You also get a bonus of 10 points for making it\n");
 	printf("	through the miensfeld by stepping out on the far right.  You also\n");
 	printf("	can earn points for flags. You get 2 points for correctly flagging\n");
-	printf("	a mine, but you lose 1 point for incorrectly flagging a \"SAFE\" grid.\n\n
+	printf("	a mine, but you lose 1 point for incorrectly flagging a \"SAFE\" grid.\n\n");
 	printf("	The game ends when you either blow up :-( or safely make it out of\n");
 	printf("	the miensfeld on the far right :-) or when you successfully flag\n");
 	printf("	all mines.\n");
