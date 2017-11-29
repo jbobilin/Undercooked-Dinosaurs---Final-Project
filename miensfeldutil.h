@@ -19,8 +19,6 @@ Description:	  utility functions, macros, etc. for the Undercooked Dinosaurs's f
 #define TRUE 1
 #define FALSE 0
 #define RESTART 3
-#define FLUSH   while(getchar() != '\n');
-
 
 /*	***  Declare Enummerated Types  ***	*/
 enum TIM_LOC {TIM_NOT_BEEN, TIM_ON, TIM_BEEN};
