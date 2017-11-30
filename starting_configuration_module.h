@@ -14,10 +14,6 @@ Description:
 #include "miensfeldutil.h"
 
 
-/*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
-
-
 /*	***  Declare Prototypes  ***	*/
 
 
