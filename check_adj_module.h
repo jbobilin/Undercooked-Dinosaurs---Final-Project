@@ -6,17 +6,9 @@ Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
 Last Modified:  26 November 2017
-Description:	  
+Description:	  This file contains the prototype adj.
 **************************
 */
 
-/*	***  Call Header Files  ***	*/
-#include <stdio.h>
-
-
-/*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
-
-
 /*	***  Declare Prototypes  ***	*/
-
+int adj(int row, int column);
