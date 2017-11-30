@@ -23,6 +23,7 @@ Description:	This is the main module for the Miensfeld game. It contains all the
 
 /*	***  Declare Global Variables  ***	*/
 int quit_flag = FALSE;
+timmys_location[2];
 enum TIM_LOC timmy_level[8][10];
 enum Glif display_level[8][10];
 enum Glif mine_level[8][10];
