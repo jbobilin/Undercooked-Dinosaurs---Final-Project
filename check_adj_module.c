@@ -20,23 +20,26 @@ Description:	  This file contains the function adj.
  * Purpose/Notes:  This function is given a cell on the playing field and calculates the mines in all adjacent tiles*/
 int adj(int row, int column)
 {
-    int count=0;
-    if (Glif MINE == mine_level[row - 1, column - 1])
-        count++;
-    if (Glif MINE == mine_level[row - 1, column])
-        count++;
-    if (Glif MINE == mine_level[row - 1, column + 1])
-        count++;
-    if (Glif MINE == mine_level[row, column - 1])
-        count++;
-    if (Glif MINE == mine_level[row, column + 1])
-        count++;
-    if (Glif MINE == mine_level[row + 1, column - 1])
-        count++;
-    if (Glif MINE == mine_level[row + 1, column])
-        count++;
-    if (Glif MINE == mine_level[row + 1, column + 1])
-            count++;
+	//declare and initialize count variable
+	int count=0;    /* variable to count mines in a adjacent tiles */
+    
+	if (Glif MINE == mine_level[row - 1, column - 1])		//check up left cell for mine
+		count++;
+	if (Glif MINE == mine_level[row - 1, column])		//check up cell for mine
+		count++;
+	if (Glif MINE == mine_level[row - 1, column + 1])		//check up right cell for mine
+		count++;
+	if (Glif MINE == mine_level[row, column - 1])		//check left cell for mine
+		count++;
+	if (Glif MINE == mine_level[row, column + 1])		//check right cell for mine
+		count++;
+	if (Glif MINE == mine_level[row + 1, column - 1])		//check down left cell for mine
+		count++;
+	if (Glif MINE == mine_level[row + 1, column])		//check down cell for mine
+		count++;
+	if (Glif MINE == mine_level[row + 1, column + 1])		//check down right cell for mine
+		count++;
  
-    return count;
+	//return total mines counted in adjacent cells
+	return count;
 }
