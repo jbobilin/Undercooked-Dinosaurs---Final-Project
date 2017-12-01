@@ -1,24 +1,27 @@
 Welcome the the README file for the Undercooked Dinosaurs's final project.
 
 Along with this file, you should find:
-  1 - makefile
-  2 - main_module.c
-  3 - main_module.h
-  4 - starting_configuration_module.c
-  5 - starting_configuration_module.h
-  6 - gameplay_module.c
-  7 - gameplay_module.h
-  8 - move_module.c
-  9 - move_module.h
-  10 - plant_module.c
-  11 - plant_module.h
-  12 - check_adj_module.c
-  13 - check_adj_module.h
-  14 - endgame_module.c
-  15 - endgame_module.h
-  16 - display.h
-  17 - display.o
-  18 - miensfeldutil.h
+  1 -	makefile
+  2 -	main_module.c
+  3 -	main_module.h
+  4 -	starting_configuration_module.c
+  5 -	starting_configuration_module.h
+  6 -	gameplay_module.c
+  7 -	gameplay_module.h
+  8 -	move_module.c
+  9 -	move_module.h
+  10 -	plant_module.c
+  11 -	plant_module.h
+  12 -	check_adj_module.c
+  13 -	check_adj_module.h
+  14 -	endgame_module.c
+  15 -	endgame_module.h
+  16 -	display.h
+  17 -	display.o
+  18 -	miensfeldutil.h
+  19 -	check_out_of_grid.c
+  20 -	check_out_of_grid.h
+  21 -	messages.h
 
 Some quick notes for future developers:
 This program stores all the information for the game in three two-dimensional arrays called the timmy_level, mine_level, and display_level. We have taken this approach because we found the need to store data about the game at different layers/levels; for example we need the program to know where all of the mines are within the game, but on a surface level display empty tiles.
