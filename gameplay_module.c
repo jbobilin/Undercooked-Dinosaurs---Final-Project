@@ -27,10 +27,14 @@ Description:
  * Purpose/Notes:  this module runs the game as it is played by the human*/
 void gameplay_module(void)
 {
+	// while the player has quit or restarted the program
 	while (quit_flag == FALSE)
 	{
+		// declare variable for user input and get input from user
 		char user_input;
 		user_input = getchar();
+		
+		//switch case for user input
 		switch (user_input)
 		{
 			case 'y':			//move up left
@@ -81,11 +85,13 @@ void gameplay_module(void)
 			case '<':			//plant down right
 				plant_flag(1, 1)
 				break;
-			case 'Q':
+			case 'Q':			//run quit_sequence
 			case 'q':
 				quit_sequence();
 			default:
 		}
+		
+		//flush buffer
 		while(getchar() != '\n');
 	}
 }
