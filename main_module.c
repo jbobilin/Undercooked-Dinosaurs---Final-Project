@@ -40,53 +40,78 @@ int main(void)
 	// declare initialize variables
 	int level;
 
+	//while loop to restart game until player wants to quit
 	while(quit_flag == FALSE || quit_flag == RESTART)
 	{
+		//run main_menu and check if player wants to quit
 		main_menu();
 			if (quit_flag == TRUE)
 				break;
 		
+		//run choose_level and check if player wants to quit, assign to level variable
 		level = choose_level();
 			if (quit_flag == TRUE)
 				break;
 
+		//run starting configuration module with level selected by user
 		starting_configuration_module(level);
 		
+		//run gameplay module until user wins, looses, or chooses to quit
 		gameplay_module();
-	}	
-	
-	void clear_screen(void);
+	}
 }
 
 
 /*	***  Functions Workspace  ***	*/
-void main_menu()
-{
-	int invalid_sel_flag = TRUE;
 
+/* Function Name:  main_menu
+ * I/O:  void / void  
+ * Purpose/Notes:  this function runs the main menu for the program. */
+void main_menu(void)
+{
+	//declare and initialize variables
+	int invalid_sel_flag = TRUE;		/* flag to check if user selected a valid menu option */
+
+	//while user has not selected an item on the menu correctly
 	while (invalid_sel_flag == TRUE)
 	{
+		//delcare variable for user input
 		char menu_sel;
+		
+		//print titles
 		print_title1();
 		print_menu_choices();
+		
+		//get user selection
 		menu_sel = getchar();
+		
+		//switch statement for menu
 		switch (menu_sel)	
 		{
+			//if user enters 1, display directions for moving until user hits enter
 			case '1':
 				print_move();
 				getchar();
 				break;
+
+			//if user enters 2, display directions for flag planting until user hits enter
 			case '2':
 				print_flags();
 				getchar();
 				break;
+
+			//if user enters 3, display directions for earning points until user hits enter
 			case '3':
 				print_points();
 				getchar();
 				break;
+
+			//if user enters 4, break out of menu
 			case '4':
 				invalid_sel_flag = FALSE;
 				break;
+				
+			//if user enter q or Q, break out of menu make program quit
 			case 'q':				
 			case 'Q':
 				quit_flag = TRUE;
@@ -95,10 +120,15 @@ void main_menu()
 			default:
 				break;
 		}
+		
+		//flush buffer
 		while(getchar() != '\n');
 	}
 }
 
+/* Function Name:  print_title1
+ * I/O:  void / void  
+ * Purpose/Notes:  print the welcome/title for Miensfeld on new screen. */
 void print_title1(void)
 {
 	system("clear");
@@ -117,6 +147,9 @@ void print_title1(void)
 	printf("\tmore information, or to begin, choose from the menu below:\n");
 }
 
+/* Function Name:  print_menu_choices
+ * I/O:  void / void  
+ * Purpose/Notes:  print the main menu. */
 void print_menu_choices(void)
 {
 	printf("\n\n");
@@ -127,6 +160,9 @@ void print_menu_choices(void)
 	printf("\tq)\tto quit\n\n");
 }
 
+/* Function Name:  print_move
+ * I/O:  void / void  
+ * Purpose/Notes:  print directions for moving on new screen. */
 void print_move(void)
 {
 	system("clear");
@@ -144,6 +180,9 @@ void print_move(void)
 	printf("\n\n\tHit ENTER to return to the main menu.\n");
 }
 
+/* Function Name:  print_flags
+ * I/O:  void / void  
+ * Purpose/Notes:  print directions for planting flags on new screen. */
 void print_flags(void)
 {
 	system("clear");
@@ -161,6 +200,9 @@ void print_flags(void)
 	printf("\n\n\tHit ENTER to return to the main menu.\n");
 }
 
+/* Function Name:  print_points
+ * I/O:  void / void  
+ * Purpose/Notes:  print directions for earning points on new screen. */
 void print_points(void)
 {
 	system("clear");
@@ -176,23 +218,43 @@ void print_points(void)
 	printf("\n\n\tHit ENTER to return to the main menu.\n");
 }
 
+/* Function Name:  choose_level
+ * I/O:  void / int  
+ * Purpose/Notes:  this function runs the sub menu which is used to select a level. */
 int choose_level(void)
 {
+	//infinite while loop until user makes a valid selection on the menu
 	while (TRUE)
 	{
+		//delcare variable for user input
 		char menu_sel;
+		
+		//print levels
 		print_level_choices();
+		
+		//get user selection
 		menu_sel = getchar();
+		
+		//switch statement for menu
 		switch (menu_sel)	
 		{
+			//if user selects 1, return 1
 			case '1':
 				return 1;
+				
+			//if user selects 2, return 2
 			case '2':
 				return 2;
+
+			//if user selects 3, return 3
 			case '3':
 				return 3;
+				
+			//if user selects 4, return 4
 			case '4':
 				return 4;
+			
+			//if user enter q or Q, break out of function and make program quit
 			case 'q':				
 			case 'Q':
 				quit_flag = TRUE;
@@ -200,9 +262,15 @@ int choose_level(void)
 			default:
 				break;
 		}
+		
+		//flush buffer
 		while(getchar() != '\n');
 	}
 }
+
+/* Function Name:  print_level_choices
+ * I/O:  void / void  
+ * Purpose/Notes:  print the level selection menu. */
 void print_level_choices(void)
 {
 	system("clear");
