@@ -1,12 +1,12 @@
 /*
 **************************
 File Name:	    messages.h
-Created By:	    Jonah Bobilin
-Login:          jbobilin
+Created By:	    
+Login:          
 Team:		        Undercooked Dinosaurs
-Date Created:	  26 November 2017
-Last Modified:	26 November 2017
-Description:	  utility functions, macros, etc. for the Undercooked Dinosaurs's final project in ee160
+Date Created:	  30 November 2017
+Last Modified:	30 November 2017
+Description:	  message library for the Undercooked Dinosaurs's final project in ee160
 **************************
 */
 
