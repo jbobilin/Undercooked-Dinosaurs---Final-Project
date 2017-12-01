@@ -1,12 +1,12 @@
 /*
 **************************
-File Name:	    miensfeldutil.h
-Created By:	    Jonah Bobilin
+File Name:	miensfeldutil.h
+Created By:	Jonah Bobilin
 Login:          jbobilin
-Team:		        Undercooked Dinosaurs
-Date Created:	  26 November 2017
+Team:		Undercooked Dinosaurs
+Date Created:	26 November 2017
 Last Modified:	26 November 2017
-Description:	  utility functions, macros, etc. for the Undercooked Dinosaurs's final project in ee160
+Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's final project in ee160
 **************************
 */
 
