@@ -23,21 +23,21 @@ int adj(int row, int column)
 	//declare and initialize count variable
 	int count = 0;    /* variable to count mines in a adjacent tiles */
     
-	if (Glif MINE == mine_level[row - 1, column - 1])		//check up left cell for mine
+	if (Glif MINE == mine_level[row - 1, column - 1])	//check up left cell for mine
 		count++;
 	if (Glif MINE == mine_level[row - 1, column])		//check up cell for mine
 		count++;
-	if (Glif MINE == mine_level[row - 1, column + 1])		//check up right cell for mine
+	if (Glif MINE == mine_level[row - 1, column + 1])	//check up right cell for mine
 		count++;
 	if (Glif MINE == mine_level[row, column - 1])		//check left cell for mine
 		count++;
 	if (Glif MINE == mine_level[row, column + 1])		//check right cell for mine
 		count++;
-	if (Glif MINE == mine_level[row + 1, column - 1])		//check down left cell for mine
+	if (Glif MINE == mine_level[row + 1, column - 1])	//check down left cell for mine
 		count++;
 	if (Glif MINE == mine_level[row + 1, column])		//check down cell for mine
 		count++;
-	if (Glif MINE == mine_level[row + 1, column + 1])		//check down right cell for mine
+	if (Glif MINE == mine_level[row + 1, column + 1])	//check down right cell for mine
 		count++;
  
 	//return total mines counted in adjacent cells
