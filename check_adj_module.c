@@ -21,7 +21,7 @@ Description:	  This file contains the function adj.
 int adj(int row, int column)
 {
 	//declare and initialize count variable
-	int count=0;    /* variable to count mines in a adjacent tiles */
+	int count = 0;    /* variable to count mines in a adjacent tiles */
     
 	if (Glif MINE == mine_level[row - 1, column - 1])		//check up left cell for mine
 		count++;
