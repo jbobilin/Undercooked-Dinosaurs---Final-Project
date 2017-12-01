@@ -14,7 +14,7 @@ Description:
 #include <stdio.h>
 
 
-/*	***  Functions Workspace  ***	*/
+/*	***  Declare Prototypes  ***	*/
 
 /* Function Name:  
  * I/O:  /  
