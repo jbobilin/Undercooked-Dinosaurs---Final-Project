@@ -12,7 +12,7 @@ Description:	  utility functions, macros, etc. for the Undercooked Dinosaurs's f
 
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
-
+#include <string.h>
 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
