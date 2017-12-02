@@ -1,6 +1,6 @@
 /*
 **************************
-File Name:	check_out_of_grid.h
+File Name:	check_out_of_grid_module.h
 Created By:	Jonah Bobilin
 Login:		jbobilin
 Team:		Undercooked Dinosaurs
