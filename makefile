@@ -8,17 +8,18 @@ FPROJ = /inst/ee/ee160/ee160/Code.lect/Miensfeld
 all: miensfeld
 
 # target for miensfeld
-miensfeld: main_module.o
-	cc main_module.o -o miensfeld.o
+miensfeld: miensfeld.o main_module.o check_adj_module.o check_out_of_grid_module.o endgame_module.o gameplay_module.o move_module.o plant_module.o starting_configuration_module.o
+	cc main_module.o check_adj_module.o check_out_of_grid_module.o endgame_module.o gameplay_module.o move_module.o plant_module.o starting_configuration_module.o -o miensfeld.o
 
 #source file dependencies
-mainmodule.o: 
-starting_configuration_module.o: 
-gameplay_module.o:
-move_module.o
-plant_module.o
-check_adj_module.o
-endgame_module.o
+mainmodule.o: display.h starting_configuration_module.h gameplay_module.h miensfeldutil.h
+starting_configuration_module.o: miensfeldutil.h
+gameplay_module.o: miensfeldutil.h main_module.h move_module.h endgame_module.h
+move_module.o: miensfeldutil.h
+plant_module.o: miensfeldutil.h
+check_adj_module.o: display.h miensfeldutil.h
+check_out_of_grid_module.o: miensfeldutil.h
+endgame_module.o: miensfeldutil.h
 display.o: display.h
 
 # copies targets
