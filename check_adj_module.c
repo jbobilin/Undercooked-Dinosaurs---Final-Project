@@ -11,7 +11,8 @@ Description:	  This file contains the function adj.
 */
 
 /*	***  Call Header Files  ***	*/
-#include <stdio.h>
+#include "miensfeld.h"
+#include "display.h"
 
 /*	***  Functions Workspace  ***	*/
 
