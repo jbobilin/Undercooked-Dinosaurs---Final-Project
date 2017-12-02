@@ -19,8 +19,8 @@ Along with this file, you should find:
   16 -	display.h
   17 -	display.o
   18 -	miensfeldutil.h
-  19 -	check_out_of_grid.c
-  20 -	check_out_of_grid.h
+  19 -	check_out_of_grid_module.c
+  20 -	check_out_of_grid_module.h
   21 -	messages.h
 
 Some quick notes for future developers:
