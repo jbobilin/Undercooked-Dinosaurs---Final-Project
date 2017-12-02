@@ -14,6 +14,7 @@ Description:
 #include "miensfeldutil.h"
 #include "main_module.h"
 #include "move_module.h"
+#include "plant_module.h"
 #include "endgame_module.h"
 
 /*	***  Define Compiler Directives  ***	*/
