@@ -85,8 +85,8 @@ int starting_configuration_module(int level)
   //Sets mines randomly
   while( mine > 0)
   {
-    tempR = rand() % 7;
-    tempC = rand() % 9;
+    tempR = rand() % 8;
+    tempC = rand() % 10;
     if(mine_level[tempR, tempC] == EMPTY)
     {
        mine_level[tempR, tempC] = MINE;
