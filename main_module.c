@@ -33,9 +33,6 @@ void print_points(void);
 void print_level_choices(void);
 int choose_level(void);
 
-/*      *** Declare global variables ***     */
-int flags_count, score_count, mines_count; 
-
 /*	***  Main Code  ***	*/
 int main(void)
 {	
