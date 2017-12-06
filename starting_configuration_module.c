@@ -13,6 +13,7 @@ Description:
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
 #include "miensfeldutil.h"
+#include "display.h"
 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
@@ -41,10 +42,36 @@ int starting_configuration_module(int level)
     }
   } 
   
+  //Resets timmy level
+   for(i=0, i<7, i++)
+  {
+    for(j=0, j<9, j++)
+    {
+      timmy_level[i,j] = TIM_NOT_BEEN;
+    }
+  } 
+  
+   //Resets timmy location
+   timmy_location[0] = 0;
+   timmy_location[1] = 0;
+   
+   //Resets dislay level
+   for(i=0, i<7, i++)
+  {
+    for(j=0, j<9, j++)
+    {
+      display_level[i,j] = EMPTY;
+    }
+  } 
+   
   //Set safe for mine level
   for(i=0, i<7, i++)
   {
     mine_level[i,0] = SAFE;
+  }
+  for(i=0, i<7, i++)
+  {   
+    mine_level[i,9] = SAFE;
   }
     mine_level[0,1] = SAFE;
     mine_level[1,1] = SAFE;
@@ -77,9 +104,11 @@ int starting_configuration_module(int level)
       {
         adjacent = adj(i,j);
         show_glif(SAFE,i,j,adjacent);
+        display_level[i,j] = SAFE;
       }
       if(mine_level[i,j] == EMPTY || mine_level[i,j] == MINE)
         show_glif(EMPTY,i,j,0);
+        display_level[i,j] = EMPTY;
     }
   } 
   
@@ -99,6 +128,14 @@ int starting_configuration_module(int level)
   update_mines(mines_count);
   update_score(score_count);
 }
+  //Set timmy level for current location
+timmy_level[0,0] = TIM_ON;
+   
+  // Places Timmy onto board
+adjacent = adj(0,0);
+show_glif(TIMMY,0,0,adjacent);
+display_level[0,0] = TIMMY;
+
   
       
    
