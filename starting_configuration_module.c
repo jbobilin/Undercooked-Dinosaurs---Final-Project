@@ -15,6 +15,7 @@ Description:
 #include "miensfeldutil.h"
 #include "display.h"
 #include <time.h>
+#include "main_module.h"
 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
@@ -39,7 +40,7 @@ int starting_configuration_module(int level)
   {
     for(j=0; j<9; j++)
     {
-      mine_level[i,j] = EMPTY;
+      mine_level[i][j] = EMPTY;
     }
   } 
   
@@ -48,7 +49,7 @@ int starting_configuration_module(int level)
   {
     for(j=0; j<9; j++)
     {
-      timmy_level[i,j] = TIM_NOT_BEEN;
+      timmy_level[i][j] = TIM_NOT_BEEN;
     }
   } 
   
@@ -61,27 +62,27 @@ int starting_configuration_module(int level)
   {
     for(j=0; j<9; j++)
     {
-      display_level[i,j] = EMPTY;
+      display_level[i][j] = EMPTY;
     }
   } 
    
   //Set safe for mine level
   for(i=0; i<7; i++)
   {
-    mine_level[i,0] = SAFE;
+    mine_level[i][0] = SAFE;
   }
   for(i=0; i<7; i++)
   {   
-    mine_level[i,9] = SAFE;
+    mine_level[i][9] = SAFE;
   }
-    mine_level[0,1] = SAFE;
-    mine_level[1,1] = SAFE;
-    mine_level[3,1] = SAFE;
-    mine_level[5,1] = SAFE;
-    mine_level[6,1] = SAFE;
-    mine_level[0,2] = SAFE;
-    mine_level[3,2] = SAFE;
-    mine_level[5,2] = SAFE;
+    mine_level[0][1] = SAFE;
+    mine_level[1][1] = SAFE;
+    mine_level[3][1] = SAFE;
+    mine_level[5][1] = SAFE;
+    mine_level[6][1] = SAFE;
+    mine_level[0][2] = SAFE;
+    mine_level[3][2] = SAFE;
+    mine_level[5][2] = SAFE;
     
   //Sets mines randomly
   while( mine > 0)
@@ -89,9 +90,9 @@ int starting_configuration_module(int level)
     srand(time(NULL));
     tempR = rand() % 8;
     tempC = rand() % 10;
-    if(mine_level[tempR, tempC] == EMPTY)
+    if(mine_level[tempR][tempC] == EMPTY)
     {
-       mine_level[tempR, tempC] = MINE;
+       mine_level[tempR][tempC] = MINE;
        mine--;
     }
   }
@@ -102,15 +103,15 @@ int starting_configuration_module(int level)
   {
     for(j=0; j<9; j++)
     {
-      if(mine_level[i,j] == SAFE)
+      if(mine_level[i][j] == SAFE)
       {
         adjacent = adj(i,j);
         show_glif(SAFE,i,j,adjacent);
-        display_level[i,j] = SAFE;
+        display_level[i][j] = SAFE;
       }
-      if(mine_level[i,j] == EMPTY || mine_level[i,j] == MINE)
+      if(mine_level[i][j] == EMPTY || mine_level[i][j] == MINE)
         show_glif(EMPTY,i,j,0);
-        display_level[i,j] = EMPTY;
+        display_level[i][j] = EMPTY;
     }
   } 
   
