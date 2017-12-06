@@ -33,7 +33,6 @@ void print_points(void);
 void print_level_choices(void);
 int choose_level(void);
 
-
 /*	***  Main Code  ***	*/
 int main(void)
 {	
