@@ -10,9 +10,6 @@ Description:
 **************************
 */
 
-/*	***  Call Header Files  ***	*/
-#include <stdio.h>
-
 
 /*	***  Declare Prototypes  ***	*/
 
