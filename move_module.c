@@ -27,11 +27,11 @@ void move(int a, int b)
         temp_row = timmys_location[0] + a;
         temp_col = timmys_location[1] + b;
 
-        if (check_grid(temp_row, temp_col) == OUT_OF_BOUNDS)
+        if (check_out_of_grid(temp_row, temp_col) == OUT_OF_BOUNDS)
                 write_message(15, "You can’t move there!");
-        else if (check_grid(temp_row, temp_col) == WIN_ZONE)
+        else if (check_out_of_grid(temp_row, temp_col) == WIN_ZONE)
                 win();
-        else if (check_grid(temp_row, temp_col) == IN_FIELD)
+        else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD)
         {
                 switch ( mine_level[temp_row, temp_col])
                 {
@@ -40,7 +40,10 @@ void move(int a, int b)
                                 death();
                                 break;
                         case Glif SAFE:
-                                update_score + 1;
+                                score_count++; 
+                                update_score(score_count);
+                                adjacent = adj(temp_row, temp_col);
+                                show_glif(Glif TIMMY, temp_row, temp_col, adj);
                                 //Move Timmy on display level and mine level to up left;
                         case Glif FLAG:
                                 timmy_level[timmys_location[0], timmys_location[1]] = TIM_LOC TIM_BEEN;
