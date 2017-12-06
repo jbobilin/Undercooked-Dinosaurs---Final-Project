@@ -14,6 +14,7 @@ Description:
 #include <stdio.h>
 #include "miensfeldutil.h"
 #include "display.h"
+#include <time.h>
 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
@@ -22,7 +23,7 @@ Description:
 /*	***  Functions Workspace  ***	*/
 int starting_configuration_module(int level)
 {
-   int mine, tempR, tempC, adjacent;
+   int mine, tempR, tempC, adjacent, i, j;
   draw_board();
   if( level = 1 ) mine = 6;
   if( level = 2 ) mine = 11;
@@ -34,18 +35,18 @@ int starting_configuration_module(int level)
    flags_count = mine;
   
   //Resets mine level
-  for(i=0, i<7, i++)
+  for(i=0; i<7; i++)
   {
-    for(j=0, j<9, j++)
+    for(j=0; j<9; j++)
     {
       mine_level[i,j] = EMPTY;
     }
   } 
   
   //Resets timmy level
-   for(i=0, i<7, i++)
+   for(i=0; i<7; i++)
   {
-    for(j=0, j<9, j++)
+    for(j=0; j<9; j++)
     {
       timmy_level[i,j] = TIM_NOT_BEEN;
     }
@@ -56,20 +57,20 @@ int starting_configuration_module(int level)
    timmy_location[1] = 0;
    
    //Resets dislay level
-   for(i=0, i<7, i++)
+   for(i=0; i<7; i++)
   {
-    for(j=0, j<9, j++)
+    for(j=0; j<9; j++)
     {
       display_level[i,j] = EMPTY;
     }
   } 
    
   //Set safe for mine level
-  for(i=0, i<7, i++)
+  for(i=0; i<7; i++)
   {
     mine_level[i,0] = SAFE;
   }
-  for(i=0, i<7, i++)
+  for(i=0; i<7; i++)
   {   
     mine_level[i,9] = SAFE;
   }
@@ -85,6 +86,7 @@ int starting_configuration_module(int level)
   //Sets mines randomly
   while( mine > 0)
   {
+    srand(time(NULL));
     tempR = rand() % 8;
     tempC = rand() % 10;
     if(mine_level[tempR, tempC] == EMPTY)
@@ -96,9 +98,9 @@ int starting_configuration_module(int level)
   
   //Draws on display level for safe cells
   
-  for(i=0, i<7, i++)
+  for(i=0; i<7; i++)
   {
-    for(j=0, j<9, j++)
+    for(j=0; j<9; j++)
     {
       if(mine_level[i,j] == SAFE)
       {
@@ -114,9 +116,9 @@ int starting_configuration_module(int level)
   
   
   //Sets all other empty to safe
-  for(i=0, i<7, i++)
+  for(i=0; i<7; i++)
   {
-    for(j=0, j<9, j++)
+    for(j=0; j<9; j++)
     {
       if(mine_level[i,j] == EMPTY)
       mine_level[i,j] = SAFE;
