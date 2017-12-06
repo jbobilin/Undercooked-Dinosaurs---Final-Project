@@ -35,19 +35,19 @@ void move(int a, int b)
         {
                 switch ( mine_level[temp_row, temp_col])
                 {
-                        case Glif MINE:
-                        case Glif FL_MINE:
+                        case MINE:
+                        case FL_MINE:
                                 death();
                                 break;
-                        case Glif SAFE:
+                        case SAFE:
+                        case FLAG:
+                                if(timmy_level[temp_row,temp_col] == TIM_NOT_BEEN)
+                                {
                                 score_count++; 
                                 update_score(score_count);
-                                adjacent = adj(temp_row, temp_col);
-                                show_glif(Glif TIMMY, temp_row, temp_col, adj);
-                                //Move Timmy on display level and mine level to up left;
-                        case Glif FLAG:
-                                timmy_level[timmys_location[0], timmys_location[1]] = TIM_LOC TIM_BEEN;
-                                timmy_level[temp_row, temp_col] = TIM_LOC TIM_ON;
+                                }
+                                timmy_level[timmys_location[0], timmys_location[1]] = TIM_BEEN;
+                                timmy_level[temp_row, temp_col] = TIM_ON;
                                 adjacent = adj(temp_row, temp_col);
                                 if (mine_level[timmys_location[0], timmys_location[1]] == FLAG)
                                 {
