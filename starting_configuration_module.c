@@ -121,8 +121,8 @@ int starting_configuration_module(int level)
   {
     for(j=0; j<9; j++)
     {
-      if(mine_level[i,j] == EMPTY)
-      mine_level[i,j] = SAFE;
+      if(mine_level[i][j] == EMPTY)
+      mine_level[i][j] = SAFE;
     }
   } 
   //Initializes scoreboard
@@ -132,12 +132,13 @@ int starting_configuration_module(int level)
   update_score(score_count);
 }
   //Set timmy level for current location
-timmy_level[0,0] = TIM_ON;
+timmy_level[0][0] = TIM_ON;
    
   // Places Timmy onto board
 adjacent = adj(0,0);
-show_glif(TIMMY,0,0,adjacent);
-display_level[0,0] = TIMMY;
+
+show_glif(TIMMY,0 , 0, adjacent);
+display_level[0][0] = TIMMY;
 
   
       
