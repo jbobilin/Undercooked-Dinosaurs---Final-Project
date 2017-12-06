@@ -14,6 +14,7 @@ Description:	This is the main module for the Miensfeld game. It contains all the
 #include <stdio.h>
 #include <stdlib.h>
 #include "display.h"
+#include "main_module.h"
 #include "starting_configuration_module.h"
 #include "gameplay_module.h"
 #include "miensfeldutil.h"
