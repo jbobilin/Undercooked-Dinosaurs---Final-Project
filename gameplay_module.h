@@ -10,9 +10,6 @@ Description:	  this file contains the prototype for the gameplay module
 **************************
 */
 
-/*	***  Call Header Files  ***	*/
-#include "miensfeldutil.h"
-
 
 /*	***  Declare Prototypes  ***	*/
 void gameplay_module(void);
