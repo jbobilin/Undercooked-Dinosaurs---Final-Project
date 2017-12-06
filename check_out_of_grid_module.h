@@ -10,8 +10,5 @@ Description:	this file contains the prototype check_out_of_grid()
 **************************
 */
 
-/*	***  Call Header Files  ***	*/
-#include <meinsfeldutil.h>
-
 /*	***  Declare Prototypes  ***	*/
 int check_out_of_grid(int row, int column);
