@@ -23,6 +23,13 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 #define IN_FIELD       5
 #define WIN_ZONE       6
 
+//Thomas's changes to this file
+#define SAFE 70
+#define EMPTY 71
+#define FLAG 72
+#define MINE 73
+#define FL_MINE 74
+
 /*	***  Declare Enummerated Types  ***	*/
 enum TIM_LOC {TIM_NOT_BEEN, TIM_ON, TIM_BEEN};
 typedef enum TIM_LOC;
