@@ -25,7 +25,7 @@ int check_out_of_grid(int row, int column)
 		return OUT_OF_BOUNDS;
 	
 	// if column is within farest right column, return WIN_ZONE
-	else if (column == 9)
+	else if (column == 10)
 		return WIN_ZONE;
 	
 	//otherwise return that cell is IN-FIELD
