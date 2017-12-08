@@ -21,7 +21,7 @@ Description:
 //#define DEBUG
 
 /*	***  Functions Workspace  ***	*/
-int starting_configuration_module(int level)
+void starting_configuration_module(int level)
 {
    int mine, tempR, tempC, adjacent, i, j;
   draw_board();
