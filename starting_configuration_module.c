@@ -25,10 +25,10 @@ int starting_configuration_module(int level)
 {
    int mine, tempR, tempC, adjacent, i, j;
   draw_board();
-  if( level = 1 ) mine = 6;
-  if( level = 2 ) mine = 11;
-  if( level = 3 ) mine = 16;
-  if( level = 4 ) mine = 20;
+  if( level == 1 ) mine = 6;
+  if( level == 2 ) mine = 11;
+  if( level == 3 ) mine = 16;
+  if( level == 4 ) mine = 20;
   
   //set score counter for mines and flags
    mines_count = mine;
@@ -84,9 +84,9 @@ int starting_configuration_module(int level)
     mine_level[5][2] = SAFE;
     
   //Sets mines randomly
-  while( mine > 0)
-  {
-    srand(time(NULL));
+  srand(time(NULL));
+    while( mine > 0)
+    {
     tempR = rand() % 8;
     tempC = rand() % 10;
     if(mine_level[tempR][tempC] == EMPTY)
