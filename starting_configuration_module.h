@@ -15,5 +15,5 @@ Description:
 
 
 /*	***  Declare Prototypes  ***	*/
-
+void starting_configuration_module(int level);
 
