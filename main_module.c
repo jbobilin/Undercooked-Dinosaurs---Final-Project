@@ -39,6 +39,7 @@ int main(void)
 {	
 	// declare initialize variables
 	int level;
+	quit_flag = FALSE;
 
 	//while loop to restart game until player wants to quit
 	while(quit_flag == FALSE || quit_flag == RESTART)
