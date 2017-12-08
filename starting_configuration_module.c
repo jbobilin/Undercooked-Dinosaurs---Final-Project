@@ -35,9 +35,9 @@ void starting_configuration_module(int level)
    flags_count = mine;
   
   //Resets mine level
-  for(i=0; i<7; i++)
+  for(i=0; i<8; i++)
   {
-    for(j=0; j<9; j++)
+    for(j=0; j<10; j++)
     {
       mine_level[i][j] = EMPTY;
     }
