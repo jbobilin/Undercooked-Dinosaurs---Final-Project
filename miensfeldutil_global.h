@@ -1,6 +1,6 @@
 /*
 **************************
-File Name:	miensfeldutil.h
+File Name:	miensfeldutil_global.h
 Created By:	Jonah Bobilin
 Login:          jbobilin
 Team:		Undercooked Dinosaurs
@@ -26,6 +26,13 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 /*	***  Declare Enummerated Types  ***	*/
 extern enum TIM_LOC {TIM_NOT_BEEN, TIM_ON, TIM_BEEN};
 extern typedef enum TIM_LOC;
+
+
+/*	***  Messages Library  ***	*/
+char error_move[25] = “
+char error_flag[25] = “Cannot place a flag there\n you’ll lose it”;
+Play_again[25] = “Play again? \nWe’re gonna need another Timmy!”;
+
 
 /*	***  Declare Prototypes  ***	*/
 //note: rn there are no utility functions, if you add one, please write a finalproject.c file to put it in and modify the README.txt file associated with the project to reflect your changes.
