@@ -14,7 +14,7 @@ Description:    This is the header file for the main module for the Miensfeld ga
 //#define DEBUG
 
 /*	***  Declare Global Variables  ***	*/
-extern int quit_flag = FALSE;
+extern int quit_flag;
 extern int timmys_location[1];
 extern int score_count;
 extern int flags_count;
