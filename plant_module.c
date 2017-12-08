@@ -1,26 +1,82 @@
 /*
 **************************
 File Name:      plant_module.c
-Created By:     
-Login:          
+Created By:     Thomas Yang
+Login:          thomasy4
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
-Last Modified:  26 November 2017
+Last Modified:  3 December 2017
 Description:	  
 **************************
 */
 
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
-
-
+#include "main_global.h"
+#include "miensfeldutil.h"
+ 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
 
 
 /*	***  Functions Workspace  ***	*/
+    
+void move(int a, int b)
+{
 
-/* Function Name:  
- * I/O:  /  
- * Purpose/Notes:  */
+        int temp_row, temp_col, adjacent;
+        temp_row = timmys_location[0] + a;
+        temp_col = timmys_location[1] + b;
 
+        if (check_out_of_grid(temp_row, temp_col) == OUT_OF_BOUNDS || check_out_of_grid(temp_row, temp_col) == WIN_ZONE)
+                write_message(15, "You can’t plant there!");
+       
+        else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD)
+        {
+                switch ( mine_level[temp_row][temp_col])
+                {
+                        case MINE:
+                                score_count += 2;
+                                update_score(score_count);
+                                flags_count--;
+                                update_flags(flags_count);
+                                mines_count--;
+                                update_mines(mines_count);
+                                display_level[temp_row][temp_col] == FL_MINE;
+                                mine_level[temp_row][temp_col] == FL_MINE;
+                                break;
+                        case FL_MINE:
+                                write_message(15, "You can’t plant there!");
+                                break;
+                        case SAFE:
+                        case FLAG:
+                                if(timmy_level[temp_row][temp_col] == TIM_NOT_BEEN)
+                                {
+                                score_count++; 
+                                update_score(score_count);
+                                }
+                                timmy_level[timmys_location[0], timmys_location[1]] = TIM_BEEN;
+                                timmy_level[temp_row][temp_col] = TIM_ON;
+                                adjacent = adj(temp_row, temp_col);
+                                if (mine_level[timmys_location[0]][timmys_location[1]] == FLAG)
+                                {
+                                        show_glif(FLAG, temp_row, temp_col, 0);
+                                        display_level[timmys_location[0]][timmys_location[1]] = FLAG;
+                                }
+                                if (mine_level[timmys_location[0]][timmys_location[1]] == SAFE)
+                                {
+                                        show_glif(SAFE, temp_row, temp_col, adj);
+                                        display_level[timmys_location[0]][timmys_location[1]] = SAFE;
+                                }
+                                show_glif(TIMMY, temp_row, temp_col, adj);
+                                display_level[temp_row][temp_col] = TIMMY;
+
+                                timmys_location[0] += a;
+                                timmys_location[1] += b;
+                                break;
+                        default:
+                                write_message("15, Error! The program messed up\n");
+                                break;
+                }
+        }
+}
