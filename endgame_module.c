@@ -20,8 +20,6 @@ Description:	  This module contains the sequences for a win, loss, and a prompt 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
 
-void quit_sequence(void);
-
 /*	***  Functions Workspace  ***	*/
 
 /* Function Name:  death
