@@ -13,7 +13,8 @@ Description:
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
 #include "main_global.h"
-#include "miensfeldutil.h"
+#include "display.h"
+//#include "miensfeldutil.h"
  
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
