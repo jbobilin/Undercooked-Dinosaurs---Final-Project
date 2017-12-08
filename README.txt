@@ -27,6 +27,8 @@ Along with this file, you should find:
 Some quick notes for future developers:
 This program stores all the information for the game in three two-dimensional arrays called the timmy_level, mine_level, and display_level. We have taken this approach because we found the need to store data about the game at different layers/levels; for example we need the program to know where all of the mines are within the game, but on a surface level display empty tiles.
 
+In Tep's included file for display.h, he incorrectly labeled the row and column for the function, show_glif.  We've reversed the input such that it makes sense now.
+
 The timmy_level array...
 Keeps track of where timmy is on the board, where he has been, and where he has not been and each coordinate location may take a correspondig value of either:
 1 - timmy has not been on this cell
