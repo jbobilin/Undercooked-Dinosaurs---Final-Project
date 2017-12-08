@@ -44,9 +44,9 @@ void starting_configuration_module(int level)
   } 
   
   //Resets timmy level
-   for(i=0; i<7; i++)
+   for(i=0; i<8; i++)
   {
-    for(j=0; j<9; j++)
+    for(j=0; j<10; j++)
     {
       timmy_level[i][j] = TIM_NOT_BEEN;
     }
