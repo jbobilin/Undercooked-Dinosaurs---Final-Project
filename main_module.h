@@ -15,10 +15,10 @@ Description:    This is the header file for the main module for the Miensfeld ga
 
 /*	***  Declare Global Variables  ***	*/
 int quit_flag = FALSE;
-int timmys_location[1];
+int timmys_location[2];
 int score_count;
 int flags_count;
 int mines_count;
-enum TIM_LOC timmy_level[7][9];
-enum Glif display_level[7][9];
-enum Glif mine_level[7][9];
+enum TIM_LOC timmy_level[8][10];
+enum Glif display_level[8][10];
+enum Glif mine_level[8][10];
