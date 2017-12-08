@@ -52,15 +52,15 @@ void move(int a, int b)
                                 adjacent = adj(temp_row, temp_col);
                                 if (mine_level[timmys_location[0]][timmys_location[1]] == FLAG)
                                 {
-                                        show_glif(Glif FLAG, temp_row, temp_col, 0);
+                                        show_glif(FLAG, temp_row, temp_col, 0);
                                         display_level[timmys_location[0]][timmys_location[1]] = FLAG;
                                 }
                                 if (mine_level[timmys_location[0]][timmys_location[1]] == SAFE)
                                 {
-                                        show_glif(Glif SAFE, temp_row, temp_col, adj);
+                                        show_glif(SAFE, temp_row, temp_col, adj);
                                         display_level[timmys_location[0]][timmys_location[1]] = SAFE;
                                 }
-                                show_glif(Glif TIMMY, temp_row, temp_col, adj);
+                                show_glif(TIMMY, temp_row, temp_col, adj);
                                 display_level[temp_row][temp_col] = TIMMY;
 
                                 timmys_location[0] += a;
