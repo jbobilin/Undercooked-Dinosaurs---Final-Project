@@ -44,38 +44,23 @@ void move(int a, int b)
                                 update_mines(mines_count);
                                 display_level[temp_row][temp_col] == FL_MINE;
                                 mine_level[temp_row][temp_col] == FL_MINE;
+                                show_glif(FL_MINE,temp_row,temp_col,0);
                                 break;
                         case FL_MINE:
                                 write_message(15, "You can’t plant there!");
                                 break;
                         case SAFE:
-                        case FLAG:
-                                if(timmy_level[temp_row][temp_col] == TIM_NOT_BEEN)
-                                {
-                                score_count++; 
+                                score_count--;
                                 update_score(score_count);
-                                }
-                                timmy_level[timmys_location[0], timmys_location[1]] = TIM_BEEN;
-                                timmy_level[temp_row][temp_col] = TIM_ON;
-                                adjacent = adj(temp_row, temp_col);
-                                if (mine_level[timmys_location[0]][timmys_location[1]] == FLAG)
-                                {
-                                        show_glif(FLAG, temp_row, temp_col, 0);
-                                        display_level[timmys_location[0]][timmys_location[1]] = FLAG;
-                                }
-                                if (mine_level[timmys_location[0]][timmys_location[1]] == SAFE)
-                                {
-                                        show_glif(SAFE, temp_row, temp_col, adj);
-                                        display_level[timmys_location[0]][timmys_location[1]] = SAFE;
-                                }
-                                show_glif(TIMMY, temp_row, temp_col, adj);
-                                display_level[temp_row][temp_col] = TIMMY;
-
-                                timmys_location[0] += a;
-                                timmys_location[1] += b;
+                                flags_count--;
+                                update_flags(flags_count);
+                                display_level[temp_row][temp_col] == FLAG;
+                                mine_level[temp_row][temp_col] == FLAG;
+                                show_glif(FLAG,temp_row,temp_col,0);
                                 break;
-                        default:
-                                write_message("15, Error! The program messed up\n");
+                  
+                        case FLAG:
+                                write_message(15, "You can’t plant there!");
                                 break;
                 }
         }
