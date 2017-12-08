@@ -12,7 +12,8 @@ Description:
 
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
-
+#include "main_global.h"
+#include "miensfeldutil.h"
  
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
@@ -33,7 +34,7 @@ void move(int a, int b)
                 win();
         else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD)
         {
-                switch ( mine_level[temp_row, temp_col])
+                switch ( mine_level[temp_row][temp_col])
                 {
                         case MINE:
                         case FL_MINE:
@@ -41,26 +42,26 @@ void move(int a, int b)
                                 break;
                         case SAFE:
                         case FLAG:
-                                if(timmy_level[temp_row,temp_col] == TIM_NOT_BEEN)
+                                if(timmy_level[temp_row][temp_col] == TIM_NOT_BEEN)
                                 {
                                 score_count++; 
                                 update_score(score_count);
                                 }
                                 timmy_level[timmys_location[0], timmys_location[1]] = TIM_BEEN;
-                                timmy_level[temp_row, temp_col] = TIM_ON;
+                                timmy_level[temp_row][temp_col] = TIM_ON;
                                 adjacent = adj(temp_row, temp_col);
-                                if (mine_level[timmys_location[0], timmys_location[1]] == FLAG)
+                                if (mine_level[timmys_location[0]][timmys_location[1]] == FLAG)
                                 {
                                         show_glif(Glif FLAG, temp_row, temp_col, 0);
-                                        display_level[timmys_location[0], timmys_location[1]] = FLAG;
+                                        display_level[timmys_location[0]][timmys_location[1]] = FLAG;
                                 }
-                                if (mine_level[timmys_location[0], timmys_location[1]] == SAFE)
+                                if (mine_level[timmys_location[0]][timmys_location[1]] == SAFE)
                                 {
                                         show_glif(Glif SAFE, temp_row, temp_col, adj);
-                                        display_level[timmys_location[0], timmys_location[1]] = SAFE;
+                                        display_level[timmys_location[0]][timmys_location[1]] = SAFE;
                                 }
                                 show_glif(Glif TIMMY, temp_row, temp_col, adj);
-                                display_level[temp_row, temp_col] = TIMMY;
+                                display_level[temp_row][temp_col] = TIMMY;
 
                                 timmys_location[0] += a;
                                 timmys_location[1] += b;
