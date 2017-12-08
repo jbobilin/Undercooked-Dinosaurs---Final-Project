@@ -1,4 +1,4 @@
-/*   File:	display.h
+/*   File:	display_global.h
      By:	Tep Dobry
      login:	tep
      Date:	
