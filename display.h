@@ -25,7 +25,7 @@ void clear_screen(void);
 	end of the program.  It is given and returns nothing.
 */
 
-void show_glif(Glif glif, int row, int col, int Adj_count);
+void show_glif(Glif glif, int col, int row, int Adj_count);
 /*  This function draws a specified glif on the board at the row
 	and column specified.  The glif is indicated by the Glif type
 	value; one of the symbols listed in the enum type above. The
