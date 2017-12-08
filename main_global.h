@@ -20,5 +20,5 @@ extern int score_count;
 extern int flags_count;
 extern int mines_count;
 extern enum TIM_LOC timmy_level[7][9];
-extern enum Glif display_level[7][9];
-extern enum Glif mine_level[7][9];
+extern int display_level[7][9];
+extern int mine_level[7][9];
