@@ -15,7 +15,7 @@ Description:
 #include "miensfeldutil.h"
 #include "display.h"
 #include <time.h>
-#include "main_module.h"
+#include "main_global.h"
 
 /*	***  Define Compiler Directives  ***	*/
 //#define DEBUG
