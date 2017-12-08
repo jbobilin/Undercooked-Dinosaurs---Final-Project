@@ -31,6 +31,9 @@ void gameplay_module(void)
 	// while the player has quit or restarted the program
 	while (quit_flag == FALSE)
 	{
+		//flush buffer
+		while(getchar() != '\n');
+		
 		// declare variable for user input and get input from user
 		char user_input;
 		user_input = getchar();
@@ -91,8 +94,5 @@ void gameplay_module(void)
 				quit_sequence();
 			default:
 		}
-		
-		//flush buffer
-		while(getchar() != '\n');
 	}
 }
