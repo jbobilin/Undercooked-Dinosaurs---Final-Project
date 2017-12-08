@@ -1,0 +1,41 @@
+# Undercooked Dinosaurs's makefile for the final project
+# Created: 26 November 2017
+
+# directory path for links
+FPROJ = /inst/ee/ee160/ee160/Code.lect/Miensfeld
+
+# target for making executables
+all: miensfeld
+
+# target for miensfeld
+miensfeld: main_module.o print_shit.o starting_configuration_module.o check_adj_module.o display.o test.o
+        cc main_module.o print_shit.o starting_configuration_module.o check_adj_module.o display.o test.o -o miensfeld -lcurses
+
+#source file dependencies
+main_module.o: display.h starting_configuration_module.h miensfeldutil.h main_global.h print_shit.h
+starting_configuration_module.o: miensfeldutil.h main_global.h display.h print_shit.h
+# gameplay_module.o: miensfeldutil.h main_module.h move_module.h endgame_module.h
+move_module.o: miensfeldutil.h
+# plant_module.o: miensfeldutil.h
+check_adj_module.o: display.h miensfeldutil.h main_global.h
+#check_out_of_grid_module.o: miensfeldutil.h
+#endgame_module.o: miensfeldutil.h
+display.o: display.h
+print_shit.o: main_global.h display.h
+
+test.o: test.h
+
+# copies targets
+copies:
+        cp  -i $(FPROJ)/display.h .
+        cp  -i $(FPROJ)/display.o .
+
+#utility targets
+clean:
+        mv display.o display.sav
+        rm -f *.o
+        mv display.sav display.o
+
+real_clean: clean
+        rm  -f miensfeld a.out core
+~
