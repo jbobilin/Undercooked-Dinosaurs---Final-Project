@@ -55,24 +55,21 @@ void starting_configuration_module(int level)
    //Resets timmy location
    timmy_location[0] = 0;
    timmy_location[1] = 0;
+   timmy_level[0][0] = TIM_ON;
    
    //Resets dislay level
-   for(i=0; i<7; i++)
+   for(i=0; i<8; i++)
   {
-    for(j=0; j<9; j++)
+    for(j=0; j<10; j++)
     {
       display_level[i][j] = EMPTY;
     }
   } 
    ][
   //Set safe for mine level
-  for(i=0; i<7; i++)
+  for(i=0; i<8; i++)
   {
     mine_level[i][0] = SAFE;
-  }
-  for(i=0; i<7; i++)
-  {   
-    mine_level[i][9] = SAFE;
   }
     mine_level[0][1] = SAFE;
     mine_level[1][1] = SAFE;
@@ -98,9 +95,9 @@ void starting_configuration_module(int level)
   
   //Draws on display level for safe cells
   
-  for(i=0; i<7; i++)
+  for(i=0; i<8; i++)
   {
-    for(j=0; j<9; j++)
+    for(j=0; j<10; j++)
     {
       if(mine_level[i][j] == SAFE)
       {
@@ -116,9 +113,9 @@ void starting_configuration_module(int level)
   
   
   //Sets all other empty to safe
-  for(i=0; i<7; i++)
+  for(i=0; i<8; i++)
   {
-    for(j=0; j<9; j++)
+    for(j=0; j<10; j++)
     {
       if(mine_level[i][j] == EMPTY)
       mine_level[i][j] = SAFE;
@@ -130,8 +127,7 @@ void starting_configuration_module(int level)
   update_mines(mines_count);
   update_score(score_count);
 }
-  //Set timmy level for current location
-timmy_level[0][0] = TIM_ON;
+
    
   // Places Timmy onto board
 adjacent = adj(0,0);
