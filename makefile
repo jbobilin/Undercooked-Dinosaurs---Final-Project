@@ -13,7 +13,7 @@ miensfeld: miensfeld.o main_module.o check_adj_module.o check_out_of_grid_module
 
 #source file dependencies
 mainmodule.o: display.h starting_configuration_module.h gameplay_module.h miensfeldutil.h
-starting_configuration_module.o: miensfeldutil.h
+starting_configuration_module.o: miensfeldutil.h main_global.h display.h
 gameplay_module.o: miensfeldutil.h main_module.h move_module.h endgame_module.h
 move_module.o: miensfeldutil.h
 plant_module.o: miensfeldutil.h
