@@ -5,8 +5,8 @@ Created By:     Jonah Bobilin
 Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
-Last Modified:  30 November 2017
-Description:	  This file contains the function adj.
+Last Modified:	30 November 2017
+Description:	This file contains the function adj.
 **************************
 */
 
