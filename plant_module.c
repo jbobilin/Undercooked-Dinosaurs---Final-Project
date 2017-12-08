@@ -14,6 +14,8 @@ Description:
 #include <stdio.h>
 #include "main_global.h"
 #include "display.h"
+#include "check_out_of_grid_module.h"
+
 //#include "miensfeldutil.h"
  
 /*	***  Define Compiler Directives  ***	*/
