@@ -1,12 +1,12 @@
 /*
 **************************
 File Name:      endgame_module.c
-Created By:     
-Login:          
+Created By:     Thomas Yang
+Login:          thomasy4
 Team:           Undercooked Dinosaurs
-Date Created:   26 November 2017
-Last Modified:  26 November 2017
-Description:	  
+Date Created:   7 December 2017
+Last Modified:  7 December 2017
+Description:	  This module contains the sequences for a win, loss, and a prompt to play again.
 **************************
 */
 
@@ -23,6 +23,10 @@ Description:
 void quit_sequence(void);
 
 /*	***  Functions Workspace  ***	*/
+
+/* Function Name:  death
+ * I/O:  void / void
+ * Purpose/Notes:  runs the death sequence*/
 void death(void)
 {
   int i, j;
@@ -40,6 +44,10 @@ void death(void)
   write_message(15, "We're gonna need another Timmy!");
   quit_sequence();
  }
+
+/* Function Name:  win
+ * I/O:  void / void
+ * Purpose/Notes:  runs the win sequence*/
 void win(void)
 {
   int i, j, adjacent;
@@ -58,7 +66,11 @@ void win(void)
   write_message(15, "Cognratuations! You won!");
   quit_sequence;
 }
-    
+
+  
+/* Function Name:  quit_sequence
+ * I/O:  void / void
+ * Purpose/Notes:  prompts user to quit or play again*/
  void quit_sequence(void)
  {
    int char;
@@ -73,8 +85,3 @@ void win(void)
    if(char == 'n' || char == 'N') quit_flag = TRUE;
    }
  }
-  
-/* Function Name:  
- * I/O:  /  
- * Purpose/Notes:  */
-
