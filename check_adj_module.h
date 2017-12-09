@@ -11,4 +11,8 @@ Description:	  This file contains the prototype adj.
 */
 
 /*	***  Declare Prototypes  ***	*/
+
+/* Function Name:  adj
+ * I/O:  int row, int column /  int
+ * Purpose/Notes:  This function is given a cell on the playing field and calculates the mines in all adjacent tiles*/
 int adj(int row, int column);
