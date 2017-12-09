@@ -12,6 +12,10 @@ Description:    This is the header file for the main module for the Miensfeld ga
 
 
 /*	***  Define Compiler Directives  ***	*/
+/*
+	NOTE:	to run in debugging mode uncomment DEBUG and comment out DISPLAY
+		to run normally uncomment DISPLAY and comment out DEBUG
+*/
 //#define DEBUG
 #define DISPLAY
 
@@ -22,8 +26,6 @@ extern int score_count;
 extern int flags_count;
 extern int mines_count;
 extern int variety;
-
-
 extern int timmy_level[8][10];
 extern int display_level[8][10];
 extern int mine_level[8][10];
