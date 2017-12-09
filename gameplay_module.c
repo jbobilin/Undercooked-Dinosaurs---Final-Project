@@ -11,14 +11,14 @@ Description:
 */
 
 /*	***  Call Header Files  ***	*/
-#include "miensfeldutil.h"
-#include "main_module.h"
+#include "main_global.h"
 #include "move_module.h"
 #include "plant_module.h"
 #include "endgame_module.h"
-
-/*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
+#include <curses.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "print_shit.h"
 
 
 /*	***  Functions Workspace  ***	*/
@@ -28,42 +28,48 @@ Description:
  * Purpose/Notes:  this module runs the game as it is played by the human*/
 void gameplay_module(void)
 {
+	#ifdef DEBUG
+	printf("in gameplay module\nquit_flag = %d\n", quit_flag);
+	#endif
+	quit_flag = FALSE;
 	// while the player has quit or restarted the program
 	while (quit_flag == FALSE)
 	{
-		//flush buffer
-		while(getchar() != '\n');
-		
-		// declare variable for user input and get input from user
+		#ifdef DEBUG
+		printf("in gameplay loop\n");
+		#endif
+
 		char user_input;
+		system("/bin/stty raw");
 		user_input = getchar();
-		
+		system("/bin/stty cooked");
+
 		//switch case for user input
 		switch (user_input)
 		{
 			case 'y':			//move up left
-				move(-1, -1);
+				move_tim(-1, -1);
 				break;
 			case 'u':			//move up
-				move(-1, 0);
+				move_tim(-1, 0);
 				break;
 			case 'i':			//move up right
-				move(-1, 1);
+				move_tim(-1, 1);
 				break;
 			case 'h':			//move left
-				move(0, -1);
+				move_tim(0, -1);
 				break;
 			case 'k':			//move right
-				move(0, 1);
+				move_tim(0, 1);
 				break;
 			case 'n':			//move down left
-				move(1, -1);
+				move_tim(1, -1);
 				break;
 			case 'm':			//move down
-				move(1, 0);
+				move_tim(1, 0);
 				break;
 			case ',':			//move down right
-				move(1, 1);
+				move_tim(1, 1);
 				break;
 			case 'Y':			//plant up left
 				plant_flag(-1, -1);
@@ -75,7 +81,7 @@ void gameplay_module(void)
 				plant_flag(-1, 1);
 				break;
 			case 'H':			//plant left
-				plant_flaf(0, -1);
+				plant_flag(0, -1);
 				break;
 			case 'K':			//plant right
 				plant_flag(0, 1);
@@ -87,12 +93,20 @@ void gameplay_module(void)
 				plant_flag(1, 0);
 				break;
 			case '<':			//plant down right
-				plant_flag(1, 1)
+				plant_flag(1, 1);
 				break;
 			case 'Q':			//run quit_sequence
 			case 'q':
 				quit_sequence();
 			default:
+				#ifdef DEBUG
+				printf("Invalid entry\n");
+				#endif
+				break;
 		}
+		#ifdef DEBUG
+		print_shit();
+		#endif
+		if(mines_count == 0) win();
 	}
 }
