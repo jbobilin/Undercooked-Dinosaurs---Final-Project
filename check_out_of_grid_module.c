@@ -14,19 +14,20 @@ Description:	This function is given a row and column and checks if the cell is w
 */
 
 /*	***  Call Header Files  ***	*/
-#include <meinsfeldutil.h>
-
+#include "miensfeldutil_global.h"
+#include "main_global.h"
 
 /*	***  Functions Workspace  ***	*/
 int check_out_of_grid(int row, int column)
 {
+	// if column is within farest right column, return WIN_ZONE
+	if (column == 10)
+		return WIN_ZONE;
+
 	// check if row or column has an out of bounds value, if so return OUT_OF_BOUNDs
 	if (row < 0 || column < 0 || row > 7 || column > 9)
 		return OUT_OF_BOUNDS;
 	
-	// if column is within farest right column, return WIN_ZONE
-	else if (column == 10)
-		return WIN_ZONE;
 	
 	//otherwise return that cell is IN-FIELD
 	else
