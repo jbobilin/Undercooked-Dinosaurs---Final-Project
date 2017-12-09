@@ -1,6 +1,7 @@
 Welcome the the README file for the Undercooked Dinosaurs's final project.
 
-Along with this file, you should find:
+In addition to this file, you should find:
+0 - Initial_Algorithms.pdf			//our team's original planning/algorithms document
 1 - check_adj_module.c				//checks for mines in adjacent cells
 2 - check_adj_module.h
 3 - check_out_of_grid_module.c			//checks if cell is in gameplay area
