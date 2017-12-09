@@ -4,8 +4,8 @@ File Name:      starting_configuration_module.c
 Created By:	Thomas Yang     
 Login:          thomasy4
 Team:           Undercooked Dinosaurs
-Date Created:   30 November 2017
-Last Modified:  30 November 2017
+Date Created:   26 November 2017
+Last Modified:  09 December 2017
 Description:	Creates and intializes the board given a selected difficulty.  Returns a board with mines laid and a preset safe zone.  
 **************************
 */
