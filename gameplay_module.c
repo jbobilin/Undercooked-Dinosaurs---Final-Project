@@ -5,8 +5,8 @@ Created By:     Jonah Bobilin
 Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
-Last Modified:  26 November 2017
-Description:	  
+Last Modified:  9 December 2017
+Description:	this file contains the gameplay module, which runs the game.
 **************************
 */
 
@@ -27,19 +27,21 @@ Description:
  * I/O:  void / void  
  * Purpose/Notes:  this module runs the game as it is played by the human*/
 void gameplay_module(void)
-{
-	#ifdef DEBUG
-	printf("in gameplay module\nquit_flag = %d\n", quit_flag);
-	#endif
+{	
+	//set quit_flag to FALSE to make sure the loop is entered
 	quit_flag = FALSE;
-	// while the player has quit or restarted the program
+	
+	//while the player has not quit or restarted the program
 	while (quit_flag == FALSE)
 	{
 		#ifdef DEBUG
-		printf("in gameplay loop\n");
+		printf("\nIn gameplay loop\n");
 		#endif
 
+		//declare variables
 		char user_input;
+		
+		//continuous run command line input
 		system("/bin/stty raw");
 		user_input = getchar();
 		system("/bin/stty cooked");
@@ -104,9 +106,13 @@ void gameplay_module(void)
 				#endif
 				break;
 		}
+		
 		#ifdef DEBUG
 		print_shit();
 		#endif
-		if(mines_count == 0) win();
+		
+		//auto win if all mines are found
+		if(mines_count == 0)
+			win();
 	}
 }
