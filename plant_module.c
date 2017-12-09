@@ -1,12 +1,13 @@
 /*
 **************************
 File Name:      plant_module.c
-Created By:     Thomas Yang
-Login:          thomasy4
+Created By:     Lian Huang
+Login:          lian
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
 Last Modified:  3 December 2017
-Description:	  
+Description:	This function is given the coordinates of the cell that the user wants to plant a flag in,
+		and determines if its a valid cell and updates the associated levels and updates score.
 **************************
 */
 
