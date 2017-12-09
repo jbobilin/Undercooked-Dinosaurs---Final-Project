@@ -21,8 +21,3 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 #define OUT_OF_BOUNDS  4
 #define IN_FIELD       5
 #define WIN_ZONE       6
-
-/*	***  Messages Library  ***	*/
-extern char error_move[25];
-extern char error_flag[60];
-extern char play_again[60];
