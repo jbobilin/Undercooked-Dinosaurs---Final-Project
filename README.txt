@@ -1,57 +1,61 @@
 Welcome the the README file for the Undercooked Dinosaurs's final project.
 
 Along with this file, you should find:
-  1 -	makefile
-  2 -	main_module.c
-  3 -	main_module.h
-  4 -	starting_configuration_module.c
-  5 -	starting_configuration_module.h
-  6 -	gameplay_module.c
-  7 -	gameplay_module.h
-  8 -	move_module.c
-  9 -	move_module.h
-  10 -	plant_module.c
-  11 -	plant_module.h
-  12 -	check_adj_module.c
-  13 -	check_adj_module.h
-  14 -	endgame_module.c
-  15 -	endgame_module.h
-  16 -	display.h
-  17 -	display.o
-  18 -	miensfeldutil.h
-  19 -	check_out_of_grid_module.c
-  20 -	check_out_of_grid_module.h
-  21 -	messages.h
-  22 -  main_global.h
+1 - check_adj_module.c				//checks for mines in adjacent cells
+2 - check_adj_module.h
+3 - check_out_of_grid_module.c			//checks if cell is in gameplay area
+4 - check_out_of_grid_module.h
+5 - display.h					//tep's display
+6 - display.o
+7 - endgame_module.c				//runs when the game ends
+8 - endgame_module.h
+9 - gameplay_module.c				//runs the game
+10 - gameplay_module.h
+11 - main_global.h				//global for main_module.h
+12 - main_module.c				//the master driver, also has menu
+13 - main_module.h				//contains anything globally declared
+14 - makefile					//our makefile
+15 - miensfeldutil.h				//our utility file
+16 - miensfeldutil_global.h			//global for our utility file
+17 - move_module.c				//moves timmy
+18 - move_module.h
+19 - plant_module.c				//plants flags
+20 - plant_module.h
+21 - print_shit.c				//debugging file
+22 - print_shit.h
+23 - starting_configuration_module.c		//configures the field prior to gameplay
+24 - starting_configuration_module.h
 
-Some quick notes for future developers:
+
+Some notes for future developers:
+
+In Tep's included file for display.h, he incorrectly labeled the row and column for the function, show_glif. We've reversed the input such that it makes sense now.
+
+If you are trying to debug then go into the the main_global.h file and in the compiler directives you will see DISPLAY and DEBUG. To run in debugging mode: uncomment DEBUG and comment out DISPLAY. To run normally: uncomment DISPLAY and comment out DEBUG.
+
 This program stores all the information for the game in three two-dimensional arrays called the timmy_level, mine_level, and display_level. We have taken this approach because we found the need to store data about the game at different layers/levels; for example we need the program to know where all of the mines are within the game, but on a surface level display empty tiles.
 
-In Tep's included file for display.h, he incorrectly labeled the row and column for the function, show_glif.  We've reversed the input such that it makes sense now.
+The timmy_level array keeps track of where timmy is on the board, where he has been, and where he has not yet been. Each coordinate location may take a value of:
+0 - TIM_NOT_BEEN
+1 - TIM_ON
+2 - TIM_BEEN
+note that: Timmy's location (i.e. 2) in the timmy_level corresponds with a 1D array called timmys_location, which contains the coordinates for the cell Timmy is currently on in the form timmys_location[0] = row and timmys_location[1] = column, we use this array as a simple way keep track of timmy's actual location for computations.
 
-The timmy_level array...
-Keeps track of where timmy is on the board, where he has been, and where he has not been and each coordinate location may take a correspondig value of either:
-1 - timmy has not been on this cell
-2 - timmy is currently on this cell
-3 - timmy has been on this cell
-note that: Timmy's location (i.e. 2) in the timmy_level corresponds with the timmys_location array which is a simple 1D array giving the coordinates [row, column], we use the timmys_location array for a simple way keep track of timmy's actual location for computations
-
-The mine_level array...
-Keeps track of what is actually happening underneath the board. Coordinates in the mine_level can take on the values of: 
-2 - SAFE
-3 - EMPTY
-4 - FLAG
-5 - MINE
-6 - FL_MINE
-
+The mine_level array keeps track of what is actually "underneath the ground." Each coordinate location may take a value of:
+1 - SAFE
+2 - EMPTY
+3 - FLAG
+4 - MINE
+5 - FL_MINE
 note that: EMPTY is used only to configure this level prior to gameplay, during gameplay coordinates on this level should never have a value of EMPTY.
 
-The display_level array...
-Keeps track of what the user sees during gameplay. This level is necessary because the Glifs printed to the play console are not stored in the computer's memory, at the same time the user needs to see empty cells even if there is a mine underneath so it is necessary to use this seperate level, rather than the mine_level. Coordinates in the display_level can take on the values of: 
-1 - TIMMY
-2 - SAFE
-3 - EMPTY
-4 - FLAG
-5 - MINE
-6 - FL_MINE
-7 - EXPLODE
+The display_level array keeps track of what the user sees during gameplay. Each coordinate location may take a value of:
+0 - TIMMY
+1 - SAFE
+2 - EMPTY
+3 - FLAG
+4 - MINE
+
+This program has been designed such that:
+1st - the menu runs
+2nd - the game
