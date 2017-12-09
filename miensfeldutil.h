@@ -15,7 +15,6 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 #include <string.h>
 
 /*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
 #define TRUE           1
 #define FALSE          0
 #define RESTART        3
@@ -25,7 +24,7 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 
 /*	***  Declare Enummerated Types  ***	*/
 enum TIM_LOC {TIM_NOT_BEEN, TIM_ON, TIM_BEEN};
-typedef enum TIM_LOC;
+typedef enum TIM_LOC TIM_LOC;
 
 /*	***  Declare Prototypes  ***	*/
 //note: rn there are no utility functions, if you add one, please write a finalproject.c file to put it in and modify the README.txt file associated with the project to reflect your changes.
