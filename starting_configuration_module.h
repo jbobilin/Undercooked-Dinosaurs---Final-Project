@@ -1,11 +1,11 @@
 /*
 **************************
 File Name:      starting_configuration_module.h
-Created By:     
-Login:          
+Created By:     Thomas Yang
+Login:          thomasy4
 Team:           Undercooked Dinosaurs
-Date Created:   26 November 2017
-Last Modified:  26 November 2017
+Date Created:   30 November 2017
+Last Modified:  30 November 2017
 Description:	  
 **************************
 */
