@@ -122,7 +122,6 @@ srand(time(NULL));
   //Sets mines randomly
   while(mine > 0)
   {
-    //srand(time(NULL));
     tempR = rand() % 8;
     tempC = rand() % 10;
     if(mine_level[tempR][tempC] == EMPTY)
@@ -149,11 +148,13 @@ print_shit();
 	#ifdef DISPLAY
         show_glif(SAFE,i,j,adjacent);
  	#endif
+	      //Update display_level and timmy_level for safe cells
 	timmy_level[i][j] = TIM_BEEN;
         display_level[i][j] = SAFE;
       }
       if(mine_level[i][j] == EMPTY || mine_level[i][j] == MINE)
 	{
+	      //Sets the rest of the display as empty cells 
 	#ifdef DISPLAY
         show_glif(EMPTY,i,j,0);
 	#endif
@@ -167,7 +168,7 @@ printf("re-configure display level\n");
 print_shit();
 #endif 
   
-  //Sets all other empty to safe
+  //Sets all other empty cells in the mine level to safe
   for(i=0; i<8; i++)
   {
     for(j=0; j<10; j++)
