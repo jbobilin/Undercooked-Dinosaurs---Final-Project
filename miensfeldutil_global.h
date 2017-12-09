@@ -15,7 +15,6 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 #include <string.h>
 
 /*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
 #define TRUE           1
 #define FALSE          0
 #define RESTART        3
@@ -24,14 +23,14 @@ Description:	utility functions, macros, etc. for the Undercooked Dinosaurs's fin
 #define WIN_ZONE       6
 
 /*	***  Declare Enummerated Types  ***	*/
-extern enum TIM_LOC {TIM_NOT_BEEN, TIM_ON, TIM_BEEN};
-extern typedef enum TIM_LOC;
+//extern enum TIM_LOC {TIM_NOT_BEEN, TIM_ON, TIM_BEEN};
+//extern typedef enum TIM_LOC;
 
 
 /*	***  Messages Library  ***	*/
-char error_move[25] = “
-char error_flag[25] = “Cannot place a flag there\n you’ll lose it”;
-Play_again[25] = “Play again? \nWe’re gonna need another Timmy!”;
+extern char error_move[25];
+extern char error_flag[60];
+extern char play_again[60];
 
 
 /*	***  Declare Prototypes  ***	*/
