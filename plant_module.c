@@ -2,7 +2,7 @@
 **************************
 File Name:      plant_module.c
 Created By:     Lian Huang
-Login:          lian
+Login:          lian7
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
 Last Modified:  3 December 2017
@@ -85,11 +85,11 @@ void plant_flag(int a, int b)
 			
 			#endif
       		}
-        	else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD)
+        	else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD) //If the cell is in field, checks what kind of cell it is
         	{
                 	switch ( mine_level[temp_row][temp_col])
                 	{
-                        	case MINE:
+                        	case MINE:  //If the user correctly flags a mine
                                 	score_count += 2;
                 			#ifndef DEBUG
                                 	update_score(score_count);
@@ -102,25 +102,26 @@ void plant_flag(int a, int b)
 					#ifndef DEBUG
                                 	update_mines(mines_count);
 					#endif
+						//Change cell to flagged mine
                                 	display_level[temp_row][temp_col] = FL_MINE;
                                 	mine_level[temp_row][temp_col] = FL_MINE;
 					#ifndef DEBUG
                                 	show_glif(FL_MINE,temp_row,temp_col,0);
 					#endif
                                 	break;
-                        	case FL_MINE:
+                        	case FL_MINE:  //If user tries to flag a flagged mine
 					flags_count--;
 					update_flags(flags_count);
                                 	#ifdef DEBUG
                         		printf("Hun, you already put a flag there. Next time why don't you try and use your eyes.\n");
                 	        	#else
         	                	write_message(14, "Cannot put a flag there,");
-					write_message(15, "you lose it.");
+					write_message(15, "so you lose it.");
 	                        	#endif
 
 					break;
-                        	case SAFE:
-					if(display_level[temp_row][temp_col] == EMPTY)
+                        	case SAFE: //Safe cells can either have two display level vaues, EMPTY or SAFE
+					if(display_level[temp_row][temp_col] == EMPTY)  //Attempted to flag a mine, but was incorrect
 					{
 						score_count--;
                                 		//#ifndef DEBUG
@@ -136,7 +137,7 @@ void plant_flag(int a, int b)
                 	                	show_glif(FLAG,temp_row,temp_col,0);
         	                        	//#endif
 					}
-					else
+					else  //Display level - SAFE, can't plant flags on SAFE cells
 					{
 						flags_count--;
 						update_flags(flags_count);
@@ -144,19 +145,19 @@ void plant_flag(int a, int b)
                         			printf("Cannot put a flag there, you lose it, duh!\n");
                 	        		#else
         	                		write_message(14, "Cannot put a flag there,");
-						write_message(15, "you lose it.");
+						write_message(15, "so you lose it.");
 	                        		#endif
 					}
 	                                break;
 
-                        	case FLAG:
+                        	case FLAG:  // If user tries to flag a flagged cell
 					flags_count--;
 					update_flags(flags_count);
 					#ifdef DEBUG
                         		printf("Why? You put a flag there already. Stop trying to flag the same spot\n");
                 	        	#else
         	                	write_message(14, "Cannot put a flag there,");
-					write_message(15, "you lose it.");
+					write_message(15, "so you lose it.");
 	                        	#endif
 
                         	        break;
