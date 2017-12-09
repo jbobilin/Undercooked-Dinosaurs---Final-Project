@@ -4,7 +4,7 @@ File Name:      endgame_module.c
 Created By:     Lian Huang
 Login:          lian7
 Team:           Undercooked Dinosaurs
-Date Created:   8 December 2017
+Date Created:   1 December 2017
 Last Modified:  8 December 2017
 Description:	this file contains the functions used if the play wins or looses, and then runs a sequence to quit.
 **************************
