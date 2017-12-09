@@ -9,16 +9,16 @@ Last Modified:  30 November 2017
 Description:    This is the header file for the main module for the Miensfeld game.
 **************************
 */
-
-/*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
+#include <stdio.h>
 
 /*	***  Declare Global Variables  ***	*/
-int quit_flag = FALSE;
+int quit_flag;
 int timmys_location[2];
 int score_count;
 int flags_count;
 int mines_count;
-enum TIM_LOC timmy_level[8][10];
-enum Glif display_level[8][10];
-enum Glif mine_level[8][10];
+int variety;
+
+int timmy_level[8][10];
+int display_level[8][10];
+int mine_level[8][10];
