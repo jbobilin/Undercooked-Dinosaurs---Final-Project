@@ -5,14 +5,14 @@ Created By:     Thomas Yang
 Login:          thomasy4
 Team:           Undercooked Dinosaurs
 Date Created:   30 November 2017
-Last Modified:  30 November 2017
-Description:	  
+Last Modified:  9 December 2017
+Description:	  this file contains the prototype for the starting_configuration_module function
 **************************
 */
 
-/*	***  Call Header Files  ***	*/
-
-
 /*	***  Declare Prototypes  ***	*/
 
-void starting_configuration_module(int);
+/* Function Name:  starting_configuration_module
+ * I/O:  int level / void
+ * Purpose/Notes:  This function configures the game for the selected level.*/
+void starting_configuration_module(int level);
