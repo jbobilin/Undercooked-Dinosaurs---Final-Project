@@ -13,18 +13,16 @@ Description:	This is the main module for the Miensfeld game. It contains all the
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "display.h"
 #include "main_module.h"
 #include "starting_configuration_module.h"
 #include "gameplay_module.h"
-#include "miensfeldutil.h"
-
-
-/*	***  Define Compiler Directives  ***	*/
-//#define DEBUG
-
+#include "print_shit.h"
+#include "miensfeldutil_global.h"
 
 /*	***  Declare Prototypes  ***	*/
+void intro(void);
 void print_title1(void);
 void main_menu(void);
 void print_menu_choices(void);
@@ -41,6 +39,9 @@ int main(void)
 	int level;
 	quit_flag = FALSE;
 
+	//run intro		
+	intro();
+
 	//while loop to restart game until player wants to quit
 	while(quit_flag == FALSE || quit_flag == RESTART)
 	{
@@ -53,17 +54,59 @@ int main(void)
 		level = choose_level();
 			if (quit_flag == TRUE)
 				break;
-
+		
 		//run starting configuration module with level selected by user
 		starting_configuration_module(level);
-		
+	
 		//run gameplay module until user wins, looses, or chooses to quit
 		gameplay_module();
+
+		clear_screen();
 	}
+	system("clear");
 }
 
 
 /*	***  Functions Workspace  ***	*/
+
+/* Function Name: intro
+ * I/O:  void / void  
+ * Purpose/Notes:  this function runs the intro for the program. */
+void intro(void)
+{
+	int i;
+	system("clear");
+	printf("\n\n\n");
+	usleep(400000);
+	printf("\t     ███╗   ███╗██╗███████╗███╗   ██╗███████╗███████╗███████╗██╗     ██████╗\n");
+	usleep(400000);
+	printf("\t     ████╗ ████║██║██╔════╝████╗  ██║██╔════╝██╔════╝██╔════╝██║     ██╔══██╗\n");
+        usleep(400000);
+	printf("\t     ██╔████╔██║██║█████╗  ██╔██╗ ██║███████╗█████╗  █████╗  ██║     ██║  ██║\n");
+        usleep(400000);
+	printf("\t     ██║╚██╔╝██║██║██╔══╝  ██║╚██╗██║╚════██║██╔══╝  ██╔══╝  ██║     ██║  ██║\n");
+        usleep(400000);
+	printf("\t     ██║ ╚═╝ ██║██║███████╗██║ ╚████║███████║██║     ███████╗███████╗██████╔╝\n");
+        usleep(400000);
+	printf("\t     ╚═╝     ╚═╝╚═╝╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚══════╝╚══════╝╚═════╝\n");
+
+	printf("\n\n\n\n");
+        usleep(400000);
+	printf("\t             __  ___    ___     __  __  ___ __     __       ___    ___\n");
+        usleep(400000);
+	printf("\t            |  \\|__\\  /|__ |   /  \\|__)|__ |  \\   |__)\\ /    ||__||__\n");
+        usleep(400000);
+	printf("\t            |__/|___\\/ |___|___\\__/|   |___|__/   |__) |     ||  ||___\n");
+        usleep(400000);
+	printf("\n\n");
+	printf("\t          __  ___ __  __  __  __      ___ __     __       __  __          __  __\n");
+        usleep(400000);
+	printf("\t |  ||\\ ||  \\|__ |__)/  `/  \\/  \\|__/|__ |  \\   |  \\||\\ |/  \\/__` /\\ |  ||__)/__` \n");
+        usleep(400000);
+	printf("\t \\__/| \\||__/|___|  \\\\__,\\__/\\__/|  \\|___|__/   |__/|| \\|\\__/.__//~~\\\\__/|  \\.__/\n"); 
+	printf("\n\n\n\n\n");
+	usleep(2500000);
+}
 
 /* Function Name:  main_menu
  * I/O:  void / void  
@@ -78,14 +121,14 @@ void main_menu(void)
 	{
 		//delcare variable for user input
 		char menu_sel;
-		
+
 		//print titles
 		print_title1();
 		print_menu_choices();
 		
 		//get user selection
 		menu_sel = getchar();
-		
+
 		//switch statement for menu
 		switch (menu_sel)	
 		{
@@ -93,25 +136,29 @@ void main_menu(void)
 			case '1':
 				print_move();
 				getchar();
+				while(getchar() != '\n');
 				break;
 
 			//if user enters 2, display directions for flag planting until user hits enter
 			case '2':
 				print_flags();
 				getchar();
+				while(getchar() != '\n');
 				break;
 
 			//if user enters 3, display directions for earning points until user hits enter
 			case '3':
 				print_points();
 				getchar();
+				while(getchar() != '\n');
 				break;
 
 			//if user enters 4, break out of menu
 			case '4':
 				invalid_sel_flag = FALSE;
+				while(getchar() != '\n');
 				break;
-				
+
 			//if user enter q or Q, break out of menu make program quit
 			case 'q':				
 			case 'Q':
@@ -121,9 +168,6 @@ void main_menu(void)
 			default:
 				break;
 		}
-		
-		//flush buffer
-		while(getchar() != '\n');
 	}
 }
 
@@ -263,9 +307,6 @@ int choose_level(void)
 			default:
 				break;
 		}
-		
-		//flush buffer
-		while(getchar() != '\n');
 	}
 }
 
