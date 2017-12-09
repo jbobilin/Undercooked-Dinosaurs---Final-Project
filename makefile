@@ -8,19 +8,31 @@ FPROJ = /inst/ee/ee160/ee160/Code.lect/Miensfeld
 all: miensfeld
 
 # target for miensfeld
-miensfeld: miensfeld.o main_module.o check_adj_module.o check_out_of_grid_module.o endgame_module.o gameplay_module.o move_module.o plant_module.o starting_configuration_module.o
-	cc main_module.o check_adj_module.o check_out_of_grid_module.o endgame_module.o gameplay_module.o move_module.o plant_module.o starting_configuration_module.o -o miensfeld.o
+miensfeld: main_module.o endgame_module.o plant_module.o print_shit.o move_module.o starting_configuration_module.o check_out_of_grid_module.o check_adj_module.o display.o gameplay_module.o
+	cc main_module.o print_shit.o endgame_module.o move_module.o plant_module.o check_out_of_grid_module.o gameplay_module.o starting_configuration_module.o check_adj_module.o display.o -o miensfeld -lcurses
 
 #source file dependencies
-mainmodule.o: display.h starting_configuration_module.h gameplay_module.h miensfeldutil.h
-starting_configuration_module.o: miensfeldutil.h main_global.h display.h
-gameplay_module.o: miensfeldutil.h main_module.h move_module.h endgame_module.h
-move_module.o: miensfeldutil.h display.h
-plant_module.o: miensfeldutil.h display.h 
-check_adj_module.o: display.h miensfeldutil.h
-check_out_of_grid_module.o: miensfeldutil.h
-endgame_module.o: miensfeldutil.h display.h check_adj_module.h
+
+check_adj_module.o: display.h main_global.h miensfeldutil_global.h check_out_of_grid_module.h
+
+check_out_of_grid_module.o: check_out_of_grid_module.h
+
+endgame_module.o: endgame_module.h check_adj_module.h main_global.h miensfeldutil_global.h display.h
+
+gameplay_module.o: miensfeldutil.h main_global.h move_module.h plant_module.h endgame_module.h print_shit.h
+
+main_module.o: display.h starting_configuration_module.h miensfeldutil_global.h gameplay_module.h print_shit.h
+
+move_module.o: display.h miensfeldutil.h print_shit.h endgame_module.h main_global.h check_adj_module.h check_out_of_grid_module.h
+
+plant_module.o: display.h miensfeldutil_global.h main_global.h check_adj_module.h check_out_of_grid_module.h print_shit.h
+
+print_shit.o: main_global.h
+
+starting_configuration_module.o: miensfeldutil.h check_adj_module.h main_global.h display.h print_shit.h
+
 display.o: display.h
+
 
 # copies targets
 copies:
