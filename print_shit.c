@@ -29,7 +29,7 @@ void print_shit(void)
 
 	//print map of field for reference
         int row, col;
-        printf("Coordinate Map\n");
+        printf("\nCoordinate Map\n");
         for (row = 0; row < 8; row++)
         {
 		for (col = 0; col < 10; col++)
