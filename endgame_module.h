@@ -6,7 +6,7 @@ Login:          lian7
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
 Last Modified:  8 December 2017
-Description:	  
+Description:	  this file contains the prototypes for the endgame module.
 **************************
 */
 
