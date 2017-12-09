@@ -33,6 +33,7 @@ void starting_configuration_module(int level)
    int mine, tempR, tempC, adjacent, i, j;
 
 #ifdef DISPLAY
+      // Draws board
  draw_board();
 #endif
 
@@ -46,6 +47,7 @@ void starting_configuration_module(int level)
    flags_count = mine;
 
 #ifdef DEBUG
+      // Display array to make sure board is drawn
 print_shit();
 #endif
     
@@ -117,7 +119,6 @@ print_shit();
   //Sets mines randomly
   while(mine > 0)
   {
-    //srand(time(NULL));
     tempR = rand() % 8;
     tempC = rand() % 10;
     if(mine_level[tempR][tempC] == EMPTY)
@@ -139,6 +140,7 @@ print_shit();
         #ifdef DISPLAY
         show_glif(SAFE,i,j,adjacent);
         #endif
+          // Update level arrays
         timmy_level[i][j] = TIM_BEEN;
         display_level[i][j] = SAFE;
       }
