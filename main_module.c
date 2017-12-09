@@ -5,7 +5,7 @@ Created By:     Jonah Bobilin
 Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   26 November 2017
-Last Modified:  26 November 2017
+Last Modified:  9 December 2017
 Description:	This is the main module for the Miensfeld game. It contains all the menus used to set up the game as well as the main function which runs the game.
 **************************
 */
@@ -21,25 +21,27 @@ Description:	This is the main module for the Miensfeld game. It contains all the
 #include "print_shit.h"
 #include "miensfeldutil_global.h"
 
+
 /*	***  Declare Prototypes  ***	*/
-void intro(void);
-void print_title1(void);
-void main_menu(void);
-void print_menu_choices(void);
-void print_move(void);
-void print_flags(void);
-void print_points(void);
-void print_level_choices(void);
-int choose_level(void);
+void intro(void);		/* prints intro screen */
+void print_title1(void);	/* prints program title block */
+void main_menu(void);		/* runs main menu */
+void print_menu_choices(void);	/* prints main menu options */
+void print_move(void);		/* prints move directions */
+void print_flags(void);		/* prints flag planting directions */
+void print_points(void);	/* prints earning points directions */
+void print_level_choices(void);	/* prints level selection menu options */
+int choose_level(void);		/* runs level selection menu */
+
 
 /*	***  Main Code  ***	*/
 int main(void)
 {	
-	// declare initialize variables
+	//declare and initialize variables
 	int level;
 	quit_flag = FALSE;
 
-	//run intro		
+	//print intro screen		
 	intro();
 
 	//while loop to restart game until player wants to quit
@@ -60,9 +62,12 @@ int main(void)
 	
 		//run gameplay module until user wins, looses, or chooses to quit
 		gameplay_module();
-
+		
+		//clear tep's display
 		clear_screen();
 	}
+
+	//clear the console screen
 	system("clear");
 }
 
@@ -71,11 +76,13 @@ int main(void)
 
 /* Function Name: intro
  * I/O:  void / void  
- * Purpose/Notes:  this function runs the intro for the program. */
+ * Purpose/Notes:  this function runs the intro screen for the program. */
 void intro(void)
-{
-	int i;
+{	
+	//clear the console screen
 	system("clear");
+	
+	//animated chase sequence for title and credit sub-title
 	printf("\n\n\n");
 	usleep(400000);
 	printf("\t     ███╗   ███╗██╗███████╗███╗   ██╗███████╗███████╗███████╗██╗     ██████╗\n");
@@ -176,7 +183,10 @@ void main_menu(void)
  * Purpose/Notes:  print the welcome/title for Miensfeld on new screen. */
 void print_title1(void)
 {
+	//clear the console screen
 	system("clear");
+	
+	//print title1
 	printf("				 WELCOME\n");
 	printf("				   to\n");
 	printf("				Miensfeld\n\n");
@@ -198,6 +208,7 @@ void print_title1(void)
  * Purpose/Notes:  print the main menu. */
 void print_menu_choices(void)
 {
+	//print the main menu choices
 	printf("\n\n");
 	printf("\t1)\tto find how to move about\n");
 	printf("\t2)\tto find how to plant flags\n");
@@ -211,7 +222,10 @@ void print_menu_choices(void)
  * Purpose/Notes:  print directions for moving on new screen. */
 void print_move(void)
 {
+	//clear the console screen
 	system("clear");
+	
+	//print move directions
 	printf("			       Moving About\n\n");
 	printf("	You can move about the field in any of eight directions from\n");
 	printf("	your current position by using the keys centered around the 'j'\n");
@@ -231,7 +245,10 @@ void print_move(void)
  * Purpose/Notes:  print directions for planting flags on new screen. */
 void print_flags(void)
 {
+	//clear the console screen
 	system("clear");
+	
+	//print planting flags directions
 	printf("	       			Planting Flags\n\n");
 	printf("	You can plant one of your flags in any of eight directions from\n");
 	printf("	your current position by using the shifted keys centered around\n");
@@ -251,7 +268,10 @@ void print_flags(void)
  * Purpose/Notes:  print directions for earning points on new screen. */
 void print_points(void)
 {
+	//clear the console screen
 	system("clear");
+	
+	//print earning points directions
 	printf("	       			Earning Points\n\n");
 	printf("	You earn 1 point for each new \"SAFE\" grid you identify by stepping\n");
 	printf("	through it.  You also get a bonus of 10 points for making it\n");
@@ -316,7 +336,10 @@ int choose_level(void)
  * Purpose/Notes:  print the level selection menu. */
 void print_level_choices(void)
 {
+	//clear the console screen
 	system("clear");
+	
+	//print level selection menu
 	printf("Please choose a level:\n");
 	printf("\n\n");
 	printf("\t1)\tEasy\n");
