@@ -6,7 +6,7 @@ Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   7 December 2017
 Last Modified:  7 December 2017
-Description:	This is a file designed to debug to meinsfeld game.
+Description:	This file contains the prototype for the print_shit function.
 **************************
 */
 
