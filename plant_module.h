@@ -14,3 +14,4 @@ Description:
 
 /*	***  Declare Prototypes  ***	*/
 
+void plant_flag(int a, int b);
