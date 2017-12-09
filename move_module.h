@@ -11,5 +11,4 @@ Description:
 */
 
 /*	***  Declare Prototypes  ***	*/
-
-
+void move_tim(int a, int b);
