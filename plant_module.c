@@ -21,26 +21,34 @@ Description:	This function is given the coordinates of the cell that the user wa
 #include "miensfeldutil_global.h"
 
 /*	***  Functions Workspace  ***	*/
-    
+/* Function Name:  plant_flag
+ * I/O:  int a, int b / void
+ * Purpose/Notes:  This function plants a flag at the passed direction (a = row, b = column) if the plant space is valid, and updates the scores*/
 void plant_flag(int a, int b)
 {
 	//Initializes variables
         int temp_row, temp_col, adjacent;
         temp_row = timmys_location[0] + a;
         temp_col = timmys_location[1] + b;
+	
 	//Clears the message screen
 	write_message(14, "");
 	write_message(15, "");
 	write_message(16, "");	 // Clears previous message
-	if(flags_count > 0)  //While you still have flags
+	
+	//While you still have flags
+	if(flags_count > 0)
 	{
-        	if (check_out_of_grid(temp_row, temp_col) == OUT_OF_BOUNDS || check_out_of_grid(temp_row, temp_col) == WIN_ZONE) //Check if plant is out of bounds
-               {
+		//Check if plant is out of bounds
+		if (check_out_of_grid(temp_row, temp_col) == OUT_OF_BOUNDS || check_out_of_grid(temp_row, temp_col) == WIN_ZONE)
+		{
+			//update flag count
 			flags_count--;
 			update_flags(flags_count);
 		 	#ifdef DEBUG
 			printf("Throwing away your flags? damn you dumb af\n");
 			#else
+			
 			//Gradually roasts the player
 			switch(variety)
 			{
@@ -82,14 +90,16 @@ void plant_flag(int a, int b)
 					write_message(16, "soon???");
 					break;
 			}
-			
 			#endif
       		}
-        	else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD) //If the cell is in field, checks what kind of cell it is
+		
+		//If the cell is in field, checks what kind of cell it is
+        	else if (check_out_of_grid(temp_row, temp_col) == IN_FIELD)
         	{
-                	switch ( mine_level[temp_row][temp_col])
+                	switch (mine_level[temp_row][temp_col])
                 	{
-                        	case MINE:  //If the user correctly flags a mine
+				//If the user correctly flags a mine
+                        	case MINE:
                                 	score_count += 2;
                 			#ifndef DEBUG
                                 	update_score(score_count);
@@ -102,14 +112,17 @@ void plant_flag(int a, int b)
 					#ifndef DEBUG
                                 	update_mines(mines_count);
 					#endif
-						//Change cell to flagged mine
+					
+					//Change cell to flagged mine
                                 	display_level[temp_row][temp_col] = FL_MINE;
                                 	mine_level[temp_row][temp_col] = FL_MINE;
 					#ifndef DEBUG
                                 	show_glif(FL_MINE,temp_row,temp_col,0);
 					#endif
                                 	break;
-                        	case FL_MINE:  //If user tries to flag a flagged mine
+                        	
+				//If user tries to flag a flagged mine
+				case FL_MINE:
 					flags_count--;
 					update_flags(flags_count);
                                 	#ifdef DEBUG
@@ -120,8 +133,11 @@ void plant_flag(int a, int b)
 	                        	#endif
 
 					break;
-                        	case SAFE: //Safe cells can either have two display level vaues, EMPTY or SAFE
-					if(display_level[temp_row][temp_col] == EMPTY)  //Attempted to flag a mine, but was incorrect
+				
+				//Safe cells can either have two display level vaues, EMPTY or SAFE
+                        	case SAFE:
+					//Attempted to flag a mine, but was incorrect
+					if(display_level[temp_row][temp_col] == EMPTY)
 					{
 						score_count--;
                                 		//#ifndef DEBUG
@@ -137,7 +153,8 @@ void plant_flag(int a, int b)
                 	                	show_glif(FLAG,temp_row,temp_col,0);
         	                        	//#endif
 					}
-					else  //Display level - SAFE, can't plant flags on SAFE cells
+					//Display level - SAFE, can't plant flags on SAFE cells
+					else
 					{
 						flags_count--;
 						update_flags(flags_count);
@@ -149,8 +166,9 @@ void plant_flag(int a, int b)
 	                        		#endif
 					}
 	                                break;
-
-                        	case FLAG:  // If user tries to flag a flagged cell
+				
+				// If user tries to flag a flagged cell
+                        	case FLAG:
 					flags_count--;
 					update_flags(flags_count);
 					#ifdef DEBUG
@@ -164,10 +182,11 @@ void plant_flag(int a, int b)
                		}
         	}
 	}
-		else
-		#ifdef DISPLAY
-		write_message(15, "No more flags!");
-		#else
-		printf("bitch you broke\n");
-		#endif
+	
+	else
+	#ifdef DISPLAY
+	write_message(15, "No more flags!");
+	#else
+	printf("bitch you broke, MAYBE should've saved some flags huh.\n");
+	#endif
 }
