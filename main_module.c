@@ -189,7 +189,8 @@ void print_title1(void)
 	printf("\tdisplay how many mines are in your immediate area as you step into\n");
 	printf("\teach grid on the field.  You also carry a set of flags you can \n");
 	printf("\tplant to show grids where you suspect there might be a mine.  For\n");
-	printf("\tmore information, or to begin, choose from the menu below:\n");
+        printf("\tmore information, or to begin, choose from the menu below. You may\n");
+        printf("\tpress \"q\" at any time to exit this program.\n");
 }
 
 /* Function Name:  print_menu_choices
