@@ -11,9 +11,8 @@ Description:
 */
 
 /*	***  Call Header Files  ***	*/
-#include "miensfeldutil.h"
 
 
 /*	***  Declare Prototypes  ***	*/
-void starting_configuration_module(int level);
 
+void starting_configuration_module(int);
