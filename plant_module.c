@@ -23,22 +23,24 @@ Description:
     
 void plant_flag(int a, int b)
 {
-
+	//Initializes variables
         int temp_row, temp_col, adjacent;
         temp_row = timmys_location[0] + a;
         temp_col = timmys_location[1] + b;
+	//Clears the message screen
 	write_message(14, "");
 	write_message(15, "");
 	write_message(16, "");	 // Clears previous message
-	if(flags_count > 0)
+	if(flags_count > 0)  //While you still have flags
 	{
-        	if (check_out_of_grid(temp_row, temp_col) == OUT_OF_BOUNDS || check_out_of_grid(temp_row, temp_col) == WIN_ZONE)
+        	if (check_out_of_grid(temp_row, temp_col) == OUT_OF_BOUNDS || check_out_of_grid(temp_row, temp_col) == WIN_ZONE) //Check if plant is out of bounds
                {
 			flags_count--;
 			update_flags(flags_count);
 		 	#ifdef DEBUG
 			printf("Throwing away your flags? damn you dumb af\n");
 			#else
+			//Gradually roasts the player
 			switch(variety)
 			{
 				case 0:
