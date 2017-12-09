@@ -56,6 +56,13 @@ The display_level array keeps track of what the user sees during gameplay. Each 
 3 - FLAG
 4 - MINE
 
-This program has been designed such that:
+This program has been designed in four main steps:
 1st - the menu runs
-2nd - the game
+2nd - the game field is configured
+3rd - the game runs
+4th - the game ends
+
+For more details on our code design process, see our initial algorithms document; however please note that although the overall sturcture for this program has remained constant, many of the details changed during the implementation and debugging processes.
+
+Thank you,
+The Undercooked Dinosaurs
