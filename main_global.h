@@ -6,7 +6,7 @@ Login:          jbobilin
 Team:           Undercooked Dinosaurs
 Date Created:   30 November 2017
 Last Modified:  30 November 2017
-Description:    This is the header file for the main module for the Miensfeld game.
+Description:    This is the global header file for the main module for the Miensfeld game.
 **************************
 */
 
