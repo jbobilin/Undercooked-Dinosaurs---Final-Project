@@ -13,6 +13,7 @@ Description:	This is a file designed to debug to meinsfeld game.
 /*	***  Call Header Files  ***	*/
 #include <stdio.h>
 #include "main_global.h"
+#include <stdlib.h>
 
 /*	***  Functions Workspace  ***	*/
 
@@ -21,6 +22,11 @@ Description:	This is a file designed to debug to meinsfeld game.
  * Purpose/Notes:  this function prints all the global arrays to test if the game is correct*/
 void print_shit(void)
 {
+
+/*	NOTE: uncomment below to clear screen as game is played		*/
+//	system("clear");
+
+
 	//print map of field for reference
         int row, col;
         printf("Coordinate Map\n");
@@ -28,7 +34,7 @@ void print_shit(void)
         {
 		for (col = 0; col < 10; col++)
                 {
-			printf("%d , %d", row,col);
+			printf("(%d,%d)", row,col);
 			printf("\t");
                 }
 		printf("\n");
@@ -75,7 +81,7 @@ void print_shit(void)
 	printf("(%d, %d)\n", timmys_location[0], timmys_location[1]);
 	
 	//print scores
-	printf("Mines:\t%d", mines_count);
-	printf("Flags:\t%d", flags_count);
-	printf("Score:\t%d", score_count);
+	printf("\nMines:\t%d", mines_count);
+	printf("\tFlags:\t%d", flags_count);
+	printf("\tScore:\t%d\n", score_count);
 }
