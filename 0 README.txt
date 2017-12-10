@@ -30,7 +30,8 @@ In addition to this file, you should find:
 NOTE: Before running this program you will need to type: "make copies" in to the unix console to copy over tep's display.o file.
 
 
-Some notes for future developers:
+
+NOTES FOR FUTURE DEVELOPERS:
 
 In Tep's included file for display.h, he incorrectly labeled the row and column for the function, show_glif. We've reversed the input such that it makes sense now.
 
