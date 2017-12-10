@@ -22,17 +22,18 @@ In addition to this file, you should find:
 18 - move_module.h
 19 - plant_module.c				//plants flags
 20 - plant_module.h
-21 - print_shit.c				//debugging file
+21 - print_shit.c				//a function desgined for debugging
 22 - print_shit.h
 23 - starting_configuration_module.c		//configures the field prior to gameplay
 24 - starting_configuration_module.h
+
 
 
 Some notes for future developers:
 
 In Tep's included file for display.h, he incorrectly labeled the row and column for the function, show_glif. We've reversed the input such that it makes sense now.
 
-If you are trying to debug then go into the the main_global.h file and in the compiler directives you will see DISPLAY and DEBUG. To run in debugging mode: uncomment DEBUG and comment out DISPLAY. To run normally: uncomment DISPLAY and comment out DEBUG.
+If you are trying to debug then go into the the main_global.h file and in the compiler directives you will see DISPLAY and DEBUG. To run in debugging mode: uncomment DEBUG and comment out DISPLAY. To run normally: uncomment DISPLAY and comment out DEBUG. Also in the print_shit.c file, uncomment line #27 for a more dynamic game debugging feedback (it is commented out right now so the configuration module debugs are not cleared when the gameplay module runs).
 
 This program stores all the information for the game in three two-dimensional arrays called the timmy_level, mine_level, and display_level. We have taken this approach because we found the need to store data about the game at different layers/levels; for example we need the program to know where all of the mines are within the game, but on a surface level display empty tiles.
 
