@@ -27,7 +27,7 @@ In addition to this file, you should find:
 23 - starting_configuration_module.c		//configures the field prior to gameplay
 24 - starting_configuration_module.h
 
-
+NOTE: Before running this program you will need to type: "make copies" in to the unix console to copy over tep's display.o file.
 
 Some notes for future developers:
 
