@@ -40,7 +40,6 @@ display.o: display.h
 
 # copies targets
 copies:
-	cp  -i $(FPROJ)/display.h .
 	cp  -i $(FPROJ)/display.o .
 
 
